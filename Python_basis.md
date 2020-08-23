@@ -14,7 +14,7 @@ x = 5
 print(x,type(x))
 ```
 
-> ```Hello <class 'str'>```
+> ```Hello <class 'str'>```</br>
 > ```5 <class 'int'>```
 
 ## 2.數字
@@ -33,14 +33,14 @@ int(2e2)
 float(200)
 ```
 
-> ```1```
-> ```2.5```
-> ```2.5```
-> ```2```
-> ```2.0```
-> ```200```
-> ```200.0```
-> ```200.0```
+> ```1```</br>
+> ```2.5```</br>
+> ```2.5```</br>
+> ```2```</br>
+> ```2.0```</br>
+> ```200```</br>
+> ```200.0```</br>
+> ```200.0```</br>
 
 ## 3.字串
 
@@ -96,12 +96,12 @@ print(z.real)
 print(z.imag)
 ```
 
-> ```(3+2j)```
-> ```(-1-2j)```
-> ```(-5+10j)```
-> ```(-1+0j)```
-> ```3.0```
-> ```5.0```
+> ```(3+2j)```</br>
+> ```(-1-2j)```</br>
+> ```(-5+10j)```</br>
+> ```(-1+0j)```</br>
+> ```3.0```</br>
+> ```5.0```</br>
 ##
 * <font color="#0080FF">**進階的複數函式(cmath模組)**</font>
 
@@ -116,12 +116,12 @@ from cmath import *
 sqrt(-1)
 ```
 
-> ```ValueError```
-> ```<ipython-input-26-cb0fd01d820b> in <module>```
-> ``` 　　　36 from math import *```
-> ```----> 37 sqrt(-1)```
-> ```ValueError: math domain error```
-> ```1j```
+> ```ValueError```</br>
+> ```<ipython-input-26-cb0fd01d820b> in <module>```</br>
+> ``` 　　　36 from math import *```</br>
+> ```----> 37 sqrt(-1)```</br>
+> ```ValueError: math domain error```</br>
+> ```1j```</br>
 
 ## 5.None值
 
@@ -138,11 +138,11 @@ False == 0
 bool(0)
 ```
 
-> ```False```
-> ```False```
-> ```True```
-> ```True```
-> ```False```
+> ```False```</br>
+> ```False```</br>
+> ```True```</br>
+> ```True```</br>
+> ```False```</br>
 
 ## 6.基本Python風格與命名慣例
 
