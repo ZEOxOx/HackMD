@@ -116,10 +116,6 @@ from cmath import *
 sqrt(-1)
 ```
 
-> ```ValueError```</br>
-> ```<ipython-input-26-cb0fd01d820b> in <module>```</br>
-> ``` 　　　36 from math import *```</br>
-> ```----> 37 sqrt(-1)```</br>
 > ```ValueError: math domain error```</br>
 > ```1j```</br>
 
