@@ -122,7 +122,9 @@ sqrt(-1)
 > ```----> 37 sqrt(-1)```
 > ```ValueError: math domain error```
 > ```1j```
-##
+
+## 5.None值
+
 * <font color="#0080FF">**None值**</font>
 
 ```python=+
@@ -141,7 +143,9 @@ bool(0)
 > ```True```
 > ```True```
 > ```False```
-##
+
+## 6.基本Python風格與命名慣例
+
 * <font color="#0080FF">**底線開頭或結尾的名稱**</font>
 > <font color="#EA0000">**Py之父 Guido van Rossum 的一個重要見解是:『閱讀程式碼的頻率遠高於撰寫』**</font>
 
