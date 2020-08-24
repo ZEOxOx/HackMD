@@ -165,3 +165,7 @@ bool(0)
 | :------: | :-----------: |
 | 可變物件   | list、dict、set、bytearray|
 | 不可變物件 | Numeric types: int, float, complex </br>string、tuple、frozen set|
+
+## 時間戳記
+
+> [name=ZEOxO][time=Mon, Aug 24, 2020 12:30 PM][color=#907bf7]
