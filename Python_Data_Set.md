@@ -58,10 +58,14 @@ z = frozenset(x)
 print(z)
 
 z.add(6) #frozenset為不可變動型別，產生錯誤
-x.add(z)
+x.add(z) #set裡面只可存放不可變動物件(如frozenset)
 print(x)
 ```
 
 > ```frozenset({1, 2, 3, 5})```</br>
 > ```AttributeError: 'frozenset' object has no attribute 'add'```</br>
 > ```{1, 2, 3, 5, frozenset({1, 2, 3, 5})}```
+
+## 時間戳記
+
+> [name=ZEOxO][time=Mon, Aug 24, 2020 15:46 PM][color=#907bf7]
