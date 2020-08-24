@@ -152,3 +152,16 @@ bool(0)
 | 前後雙底線  | 保留給 Python 內部使用的名稱，請避免使用 |
 | 後單底線_  | 避免與 Python 關鍵字衝突。如想用 str 這個名稱，可取名為 str_ |
 | 單底線(_)  | 不重要、暫時性的資料 |
+
+## 7.可變與不可變物件
+
+* <font color="#0080FF">**Everything is an Object**</font>
+
+> <font color="#EA0000">**mutable:當變數參照的是可變物件，修改變數會直接更改該物件**</font>
+
+> <font color="#EA0000">**immutable:當變數參照的是不可變物件，修改變數會直接建立一個新的物件**</font>
+
+| 類別 | 說明 |
+| :------: | :-----------: |
+| 可變物件   | list、dict、set、bytearray|
+| 不可變物件 | Numeric types: int, float, complex </br>string、tuple、frozen set|
