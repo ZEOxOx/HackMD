@@ -58,8 +58,10 @@ print(x)
 > ```[1, 2, 3, 4, 5, 6, 7]```</br>
 > ```[-1, 0, 1, 2, 3, 4, 5, 6, 7]```</br>
 > ```[-1, 7]```
-## 
-* <font color="#0080FF">**串列常用方法(method)與操作**</font>
+> 
+## 2.串列常用方法(method)與操作
+
+* <font color="#0080FF">**append()**</font>
 
 ```python=+
 x = [1,2,3,4]
@@ -70,7 +72,9 @@ x
 ```
 
 > ```[1, 2, 3, 4, [5, 6, 7]]```
-##
+
+* <font color="#0080FF">**extend()**</font>
+
 ```python=+
 x = [1,2,3,4]
 y = [5,6,7]
@@ -80,7 +84,9 @@ x
 ```
 
 > ```[1, 2, 3, 4, 5, 6, 7]```
-##
+
+* <font color="#0080FF">**insert()**</font>
+
 ```python=+
 x = [1,2,3]
 
@@ -93,7 +99,9 @@ print(x)
 
 > ```[1, 2, 'hello', 3]```</br>
 > ```['start', 1, 2, 'hello', 3]```
-##
+
+* <font color="#0080FF">**del()**</font>
+
 ```python=+
 x = ['a',2,'c',7,9,11]
 
@@ -106,7 +114,9 @@ print(x)
 
 > ```['a', 'c', 7, 9, 11]```</br>
 > ```[7, 9, 11]```
-## 
+
+* <font color="#0080FF">**remove()**</font>
+
 ```python=+
 x = [1,2,3,4,3,5]
 #找到第一個與指定值相同的元素
@@ -119,3 +129,229 @@ print(x)
 
 > ```[1, 2, 4, 3, 5]```</br>
 > ```[1, 2, 4, 5]```
+
+* <font color="#0080FF">**reverse()**</font>
+
+```python=+
+x = [1,3,11,7,9]
+
+x.reverse()
+x
+```
+
+> ```[9, 7, 11, 3, 1]```
+
+* <font color="#0080FF">**sort()**</font>
+
+```python=+
+x = [3,8,4,0,2,1]
+x.sort()
+print(x)
+
+x = [1,2,'hello',3] #不可包含數字及字串，無法比較
+x.sort()
+print(x)
+
+x = ['Life','is','Enchanting']
+x.sort()
+print(x)
+
+x = [[3,5],[2,9],[2,3],[4,1],[3,2]] #串列內的元素是list也可以排列
+x.sort()
+print(x)
+
+x = [0,1,2]
+x.sort(reverse=True)
+print(x)
+```
+
+> ```[0, 1, 2, 3, 4, 8]```</br>
+> ```TypeError: '<' not supported between instances of 'str' and 'int'```</br>
+> ```['Enchanting', 'Life', 'is']```</br>
+> ```[[2, 3], [2, 9], [3, 2], [3, 5], [4, 1]]```</br>
+> ```[2, 1, 0]```
+
+* <font color="#0080FF">**sorted()**</font>
+
+```python=+
+x = [4,3,2,1]
+
+y = sorted(x)
+print('y:',y)
+print('x:',x)
+
+y[0] = 'one'
+print('y:',y)
+print('x:',x) #不會影響x串列
+```
+
+> ```y: [1, 2, 3, 4]```</br>
+> ```x: [4, 3, 2, 1]```</br>
+> ```y: ['one', 2, 3, 4]```</br>
+> ```x: [4, 3, 2, 1]```</br>
+
+* <font color="#0080FF">**index()**</font>
+
+```python=+
+x = [1,3,'five',7,-2]
+
+x.index(7)
+x.index(5)
+```
+
+> ```3```</br>
+> ```ValueError: 5 is not in list```
+
+* <font color="#0080FF">**count()**</font>
+
+```python=+
+x = [1,2,2,3,5,2,5]
+
+x.count(2)
+x.count(5)
+x.count(4)
+```
+
+> ```3```</br>
+> ```2```</br>
+> ```0```
+
+* <font color="#0080FF">**min()、max()、sum()**</font>
+
+```python=+
+min(3,7,0,-2,11)
+
+max('Hello','World','!!')
+max(4,'OxO',[1,2]) #不可包含數字及字串，無法比較
+
+sum([1,5,6,7,8])
+```
+
+> ```-2```</br>
+> ```'World'```</br>
+> ```TypeError: '>' not supported between instances of 'str' and 'int'```</br>
+> ```27```
+
+## 3.其他常用及特殊的list操作
+
+* <font color="#0080FF">**(!)自定義排序**</font>
+
+```python=+
+def campare_num_of_chars(st):
+    return len(st)
+
+word_list = ['HELLO','my','name','is','ZEOxO']
+word_list.sort()
+print(word_list)
+
+word_list = ['HELLO','my','name','is','ZEOxO']
+word_list.sort(key = campare_num_of_chars)
+print(word_list)
+```
+
+> ```['HELLO', 'ZEOxO', 'is', 'my', 'name']```</br>
+> ```['my', 'is', 'name', 'HELLO', 'ZEOxO']```
+##
+* <font color="#0080FF">**使用「*」算符將list初始化**</font>
+
+```python=+
+x = [None] * 4
+y = [[0] * 3] * 3
+
+print(x)
+print(y)
+```
+
+> ```[None, None, None, None]```</br>
+> ```[[0, 0, 0], [0, 0, 0], [0, 0, 0]]```
+##
+* <font color="#0080FF">**使用「in」算符測試某元素值是否存在**</font>
+
+```python=+
+3 in [1,3,4,5]
+3 not in [1,3,4,5]
+
+3 in ['one','two','three','four']
+3 not in ['one','two','three','four']
+```
+
+> ```True```</br>
+> ```False```</br>
+> ```False```</br>
+> ```True```
+##
+* <font color="#0080FF">**使用「+」算符來串聯list**</font>
+
+```python=+
+z = [1,2,3] + [4,5]
+print(z)
+```
+
+> ```[1, 2, 3, 4, 5]```</br>
+
+## 4.多層List與深層拷貝(deepcopy)
+
+* <font color="#0080FF">**(!)多層陣列 元素參照**</font>
+
+```python=+
+nested = [0]
+original = [nested,1]
+print(original)
+
+nested[0] = 'zero'
+#不可寫成「nested = 'zero'」這樣nested會參照到新的字串
+print('nested:',nested)
+print('original:',original)
+
+#nested與original互相連結
+original[0][0] = 0
+print('nested:',nested)
+print('original:',original)
+
+#nested參照到新陣列，使原本的連結破壞
+nested = [2]
+print('nested:',nested)
+print('original:',original)
+```
+
+> ```[[0], 1]```</br>
+> ```nested: ['zero']```</br>
+> ```original: [['zero'], 1]```</br>
+> ```nested: [0]```</br>
+> ```original: [[0], 1]```</br>
+> ```nested: [2]```</br>
+> ```original: [[0], 1]```
+##
+* <font color="#0080FF">**深層拷貝(deepcopy)**</font>
+
+```python=+
+original = [[0],1]
+shallow = original[:]#[淺層拷貝]並不會將第二層以上的list複製一份，而是參照到原list
+import copy
+deep = copy.deepcopy(original)
+#[深層拷貝]則是獨立於原始list，更改deep的list不會對original造成影響
+
+shallow[1] = 2
+print(shallow)
+print(original)
+
+shallow[0][0] = 'zero'
+#不可寫成「shallow[0] = ['zero']」因為會參照到新的陣列
+print(shallow)
+print(original)
+
+deep[0][0] = 5
+print(deep)
+print(original)
+```
+
+> ```[[0], 2]```</br>
+> ```[[0], 1]```</br>
+> ```[['zero'], 2]```</br>
+> ```[['zero'], 1]```</br>
+> ```[[5], 1]```</br>
+> ```[['zero'], 1]```
+
+## 時間戳記
+
+> [name=ZEOxO][time=Mon, Aug 24, 2020 13:12 PM][color=#907bf7]
