@@ -372,7 +372,7 @@ repr(now)
 
 ## 8.Python 字串模組
 
-* <font color="#0080FF">**(!)被Python定義的空白字元**</font>
+* <font color="#0080FF">**(!)被 Python 定義的空白字元**</font>
 
 ```python=+
 import string
@@ -385,7 +385,7 @@ string.whitespace #可透過存取「string.whitespace」常數找到
 > ```' \t\n\r\x0b\x0c'```
 
 ##
-* <font color="#0080FF">**(!)其他Python定義的字元**</font>
+* <font color="#0080FF">**(!)其他被 Python 定義的字元**</font>
 
 ```python=+
 import string
