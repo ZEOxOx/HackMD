@@ -90,7 +90,7 @@ def four():
         x += 1
     
 for i in four():
-    print(i)
+    print(i) #產生器(走訪器)是特殊函式，要搭配For迴圈使用
 ```
 
 > ```in generator, x =  0```</br>
@@ -130,4 +130,46 @@ for q in gen(6):
 
 ## 4.Decorator 修飾器函式
 
-* <font color="#0080FF">**修飾器**</font>
+* <font color="#0080FF">**修飾器(原始函式)**</font>
+
+> <font color="#EA0000">**當你想為函式新增功能，卻不想更動函式原始碼的情況下，就非常推薦使用修飾器!!**</font>
+
+```python=+
+def friedchicken():
+    return 49.0
+
+print(friedchicken()) #49.0
+```
+
+>```49.0```
+##
+* <font color="#0080FF">**修飾器(新增功能)**</font>
+
+```python=+
+def sidedish1(meal):
+    return lambda: meal() + 30
+
+def friedchicken():
+    return 49.0
+
+#修飾器敘述
+friedchicken = sidedish1(friedchicken) 
+print(friedchicken()) #新的friedchicken函式
+```
+
+>```79.0```
+##
+* <font color="#0080FF">**修飾器(語法糖)**</font>
+
+```python=+
+def sidedish1(meal):
+    return lambda: meal() + 30
+
+@sidedish1 #等同「friedchicken = sidedish1(friedchicken)」
+def friedchicken():
+    return 49.0
+
+print(friedchicken()) #新的friedchicken函式
+```
+
+>```79.0```
