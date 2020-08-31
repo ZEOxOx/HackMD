@@ -1,5 +1,7 @@
 # Python - 模組
 
+###### tags: `Python`
+
 ## 1.自訂模組
 
 * <font color="#0080FF">**第一個自訂模組**</font>
