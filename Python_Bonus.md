@@ -173,3 +173,7 @@ print(friedchicken()) #新的friedchicken函式
 ```
 
 >```79.0```
+
+## 時間戳記
+
+> [name=ZEOxO][time=Mon, Aug 30, 2020 23:00 PM][color=#907bf7]
