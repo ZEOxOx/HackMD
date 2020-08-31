@@ -1,5 +1,7 @@
 # Python - 基本資料結構(Set)
 
+###### tags: `Python`
+
 ## 1.集合(Set)
 
 * <font color="#0080FF">**重複的資料會被自動刪除**</font>
