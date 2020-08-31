@@ -1,5 +1,7 @@
 # Python - 字串(String)
 
+###### tags: `Python`
+
 ## 1.字串(String)
 
 * <font color="#0080FF">**字串為字元序列**</font>
