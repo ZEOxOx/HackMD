@@ -1,5 +1,7 @@
 # 資料科學 - Numpy 基礎篇
 
+###### tags: `Data Science`
+
 ## 1.Numpy的基礎
 
 * <font color="#0080FF">**Numpy 的匯入**</font>
