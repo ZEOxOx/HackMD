@@ -1,5 +1,7 @@
 # Python - 特別篇
 
+###### tags: `Python`
+
 ## 1.特殊應用及進階技巧
 
 * <font color="#0080FF">**用可變物件(mutable)作為引數**</font>
