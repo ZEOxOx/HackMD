@@ -1,5 +1,7 @@
 # Python - 流程控制
 
+###### tags: `Python`
+
 ## 1.簡潔的 Python 語法
 
 * <font color="#0080FF">**Python 的 switch-case 語法**</font>
