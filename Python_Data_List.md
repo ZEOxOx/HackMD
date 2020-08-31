@@ -1,6 +1,6 @@
 # Python - 基本資料結構(List)
 
-###### tags: Python
+###### tags: `Python`
 
 ## 1.串列(List)
 
