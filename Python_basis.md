@@ -1,6 +1,6 @@
 # Python - 基礎篇
 
-###### tags: Python
+###### tags: `Python`
 
 ## 1.變數及其設定 Assignment
 
