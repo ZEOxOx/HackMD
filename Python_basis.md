@@ -1,5 +1,7 @@
 # Python - 基礎篇
 
+###### tags: Python
+
 ## 1.變數及其設定 Assignment
 
 * <font color="#0080FF">**變數名稱參照到不同型別物件(不推薦，易混淆)**</font>
