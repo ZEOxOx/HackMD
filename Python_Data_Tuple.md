@@ -1,5 +1,7 @@
 # Python - 基本資料結構(Tuple)
 
+###### tags: `Python`
+
 ## 1.元組(Tuple)
 
 * <font color="#0080FF">**數字與元組**</font>
