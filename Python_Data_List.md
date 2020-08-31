@@ -1,5 +1,7 @@
 # Python - 基本資料結構(List)
 
+###### tags: Python
+
 ## 1.串列(List)
 
 * <font color="#0080FF">**索引與切片**</font>
