@@ -206,11 +206,22 @@ print(max.__doc__)
 > ```max(iterable, *[, default=obj, key=func]) -> value```</br>
 > ```max(arg1, arg2, *args, *[, key=func]) -> value```
 > ```...```
+##
+* <font color="#0080FF">**(!)變數名稱偵錯**</font>
 
+```python=+
+x1 = 6
+xl = x1 - 2 #左邊名稱將數字 1 誤打成英文字母 l 
+x1
 
+dir() #(注意!)在沒有參數的情況下傳回區域命名空間中的名稱
 
+#最後面可以看到變數竟然有兩個!!
+```
 
+> ```6```</br>
+> ```['In','Out','_','_1','_14',...,'mymath','quit','x1','xl']```
 
 ## 時間戳記
 
-> [name=ZEOxO][time=Tue, Sep 1, 2020 15:04 PM][color=#907bf7]
+> [name=ZEOxO][time=Tue, Sep 1, 2020 15:13 PM][color=#907bf7]
