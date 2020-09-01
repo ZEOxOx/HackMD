@@ -37,7 +37,7 @@ z = 2
 import math
 from cmath import cos
 
-globals() #增加了一些新的數值
+globals() #因為有新變數，增加了一些新的數值
 ```
 
 > ```{'__name__': '__main__',...,'_i': 'globals()','_ii': 'locals()','_iii': '','_i1': 'locals()','_1': {...},'_i2': 'globals()','_2': {...},'_i3': 'z = 2\nimport math\nfrom cmath import cos\n\nglobals()','z': 2,'math': <module 'math' (built-in)>,'cos': <function cmath.cos(z, /)>}```
@@ -93,7 +93,7 @@ def f(x):
     w = v
     print('離開 local: ',locals().keys())
 ```
-
+##
 * <font color="#0080FF">**名稱的可視範圍**</font>
 
 ```python=+
@@ -105,6 +105,81 @@ scopetest.f(z)
 #模組外部的名稱會影響內部程式碼的運作
 ```
 
-> ```global:  ['__name__', '__doc__', '__package__', '__loader__', '__spec__', '__file__', '__cached__', '__builtins__', 'v', 'f']```</br>
+> ```global:  ['__name__', '__doc__', '__package__', '__loader__', '__spec__', '__file__', '__cached__', '__builtins__', 'v', 'f']```</br></br>
 > ```進入 local:  {'x': 2}```</br>
 > ```離開 local:  dict_keys(['x', 'y', 'w'])```
+
+## 4.(!)從模組 import 變數容易發生的問題
+
+
+<font color="#0080FF">**counter.py**</font>
+
+```python=+
+num = 0
+def add():
+    global num
+    num += 1
+```
+##
+* <font color="#0080FF">**使用 import 匯入**</font>
+
+```python=+
+import counter
+
+print(counter.num)
+counter.add()
+print(counter.num)
+```
+
+> ```0```</br>
+> ```1```
+##
+* <font color="#0080FF">**使用 from ... import ... 匯入**</font>
+
+```python=+
+from counter import num,add
+print(num)
+add()
+print(num)
+
+import counter
+print(counter.num)
+```
+
+> ```0```</br>
+> ```0```</br>
+> ```1```
+
+## 5.其他常用及特殊的操作
+
+* <font color="#0080FF">**用 dir() 列出模組內所有名稱**</font>
+
+```python=+
+dir(__builtins__)
+```
+
+> ```['ArithmeticError','AssertionError','AttributeError','BaseException','BlockingIOError','BrokenPipeError','BufferError','BytesWarning',...,'str','sum','super','tuple','type','vars','zip']```
+##
+* <font color="#0080FF">**查看函式的說明文件**</font>
+
+```python=+
+help(max)
+print(max.__doc__)
+```
+
+> ```Help on built-in function max in module builtins:```</br>
+> ```max(...)```</br>
+> ```    max(iterable, *[, default=obj, key=func]) -> value```</br>
+> ``` max(arg1, arg2, *args, *[, key=func]) -> value```
+> ```...```</br></br>
+> ```max(iterable, *[, default=obj, key=func]) -> value```</br>
+> ```max(arg1, arg2, *args, *[, key=func]) -> value```
+> ```...```
+
+
+
+
+
+## 時間戳記
+
+> [name=ZEOxO][time=Tue, Sep 1, 2020 12:40 PM][color=#907bf7]
