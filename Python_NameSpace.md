@@ -137,7 +137,7 @@ print(counter.num)
 * <font color="#0080FF">**使用 from ... import ... 匯入**</font>
 
 ```python=+
-from counter import num,add
+from counter import num,add #直接掛在主程式命名空間中
 print(num)
 add()
 print(num)
@@ -150,7 +150,38 @@ print(counter.num)
 > ```0```</br>
 > ```1```
 
-## 5.其他常用及特殊的操作
+## (!)5.建立與內建函式同名的變數
+
+* <font color="#0080FF">**(!)全域變數名稱覆蓋同名稱內建函式**</font>
+
+```python=+
+list('SUSHI RAMEN')
+list = [1,3,5,7]
+
+list('SUSHI RAMEN') #已被同名變數名稱覆蓋
+
+del list #刪除全域命名空間的list
+list('SUSHI RAMEN')
+```
+
+> ```['S', 'U', 'S', 'H', 'I', ' ', 'R', 'A', 'M', 'E', 'N']```</br>
+> ```TypeError: 'list' object is not callable```</br>
+> ```['S', 'U', 'S', 'H', 'I', ' ', 'R', 'A', 'M', 'E', 'N']```
+##
+* <font color="#0080FF">**相同名稱重複使用 (新值覆蓋舊值)**</font>
+
+```python=+
+import mymath #為先前撰寫的自訂模組
+
+mymath = mymath.area # mymath參照到模組的 area 函式
+mymath(3)
+mymath.pi
+```
+
+> ```28.27431```</br>
+> ```AttributeError: 'function' object has no attribute 'pi'```
+
+## 6.其他常用及特殊的操作
 
 * <font color="#0080FF">**用 dir() 列出模組內所有名稱**</font>
 
@@ -160,7 +191,7 @@ dir(__builtins__)
 
 > ```['ArithmeticError','AssertionError','AttributeError','BaseException','BlockingIOError','BrokenPipeError','BufferError','BytesWarning',...,'str','sum','super','tuple','type','vars','zip']```
 ##
-* <font color="#0080FF">**查看函式的說明文件**</font>
+* <font color="#0080FF">**查看函式內的說明文件**</font>
 
 ```python=+
 help(max)
@@ -182,4 +213,4 @@ print(max.__doc__)
 
 ## 時間戳記
 
-> [name=ZEOxO][time=Tue, Sep 1, 2020 12:40 PM][color=#907bf7]
+> [name=ZEOxO][time=Tue, Sep 1, 2020 15:04 PM][color=#907bf7]
