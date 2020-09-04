@@ -1,4 +1,4 @@
-# Python - 模組
+# Python - 模組(Module)
 
 ###### tags: `Python`
 
