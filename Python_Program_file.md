@@ -19,6 +19,8 @@ main()
 ## 
 * <font color="#0080FF">**從命令列執行 Python 程式檔**</font>
 
+(SKIP)
+
 ## 2.輸入和輸出重導與管線
 
 * <font color="#0080FF">**標準輸入 / 輸出**</font>
