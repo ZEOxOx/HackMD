@@ -51,7 +51,7 @@ Hello Python!
 
 > <font color="#EA0000">**open()函式會以作業系統預設編碼來開啟檔案，而繁體中文 Windows 預設編碼格式為「cp950」。通常都會改設為「utf-8」和「utf-8-sig」( 大小寫均可，「-」可換成「_」)</br></br>utf-8-sig : 檔案最前面加上BOM( Byte-order mark )，以便辨識此檔案的編碼方式，不過若軟體、程式不支援則會變成亂碼**</font>
 
-## 2.讀寫文字檔和二進位檔案
+## 2.讀取文字檔和二進位檔案
 
 * <font color="#0080FF">**readline() 讀取一行**</font>
 
@@ -101,7 +101,7 @@ file.close()
 input_file = open('myfile',newline = '\n')
 ```
 
-## 2.寫入檔案
+## 3.寫入檔案
 
 * <font color="#0080FF">**write() 寫入字串資料**</font>
 
@@ -139,7 +139,7 @@ Hello Python!!!!!!!!!
 !!!!Hello Python!!!!!
 ```
 
-## 3.讀取與寫入 - pathlib
+## 4.讀取與寫入 - pathlib
 
 * <font color="#0080FF">**建立 Path 物件處理文字檔與二進位檔**</font>
 
@@ -159,7 +159,7 @@ p_binary.read_bytes() #傳回位元組內容
 > ```20```</br>
 > ```b'Binary file contents'```
 
-## 4.標準輸入 / 輸出與重新導向
+## 5.標準輸入 / 輸出與重新導向
 
 * <font color="#0080FF">**將標準輸出「重新導向」及回復其原始值**</font>
 
@@ -200,10 +200,83 @@ f.close()
 > ```7```</br>
 > ```7```
 
-## 5.讀取結構化二進位資料
+## 6.讀取結構化二進位資料
 
 * <font color="#0080FF">**struct 模組**</font>
 
+**(SKIP)**
+
+## 7.將物件序列化後保存到檔案
+
+* <font color="#0080FF">**pickle 模組 保存重要的變數**</font>
+
+```python=+
+import pickle
+
+path = os.path.join(os.pardir,'document','pickle.txt')
+file = open(path,'wb')
+
+a = 'Hello'
+b = list('Hello')
+c = {'H':'ello'}
+
+#pickle可儲存各種型態的資料
+pickle.dump(a,file)
+pickle.dump(b,file)
+pickle.dump(c,file)
+file.close()
+```
+##
+<font color="#0080FF">**pickle.txt**</font>
+
+```python=+
+X   Helloq .]q (X   HqX   eqX   lqhX   oqe.}q X   HqX   elloqs.
+```
+##
+* <font color="#0080FF">**pickle 模組 讀取儲存資料**</font>
+
+```python=+
+import pickle
+
+path = os.path.join(os.pardir,'document','pickle.txt')
+file = open(path,'rb')
+
+a = pickle.load(file)
+b = pickle.load(file)
+c = pickle.load(file)
+file.close()
+
+print(a,b,c)
+```
+
+> ```Hello ['H', 'e', 'l', 'l', 'o'] {'H': 'ello'}```
+
+## 8.利用字典的鍵取得大量資料
+
+* <font color="#0080FF">**shelve 物件**</font>
+
+> <font color="#EA0000">**可將其視為一個字典，該字典的資料是儲存在磁碟機上而不是記憶體，因此無須受到記憶體大小的限制 (優點)**</font>
+##
+* <font color="#0080FF">**shelve 儲存字典**</font>
+
+```python=+
+import shelve
+book = shelve.open('address')
+book['167'] = ('小明','0912-345678','咪喵路1號')
+book['928'] = ('小美','0987-654321','咪喵路2號')
+book.close()
+```
+##
+* <font color="#0080FF">**shelve 讀取字典**</font>
+
+```python=+
+import shelve
+book = shelve.open('address')
+book['167']
+```
+
+> ```('小明', '0912-345678', '咪喵路1號')```
+
 ## 時間戳記
 
-> [name=ZEOxO][time=Wed, Sep 6, 2020 14:34 PM][color=#907bf7]
+> [name=ZEOxO][time=Wed, Sep 8, 2020 13:15 PM][color=#907bf7]
