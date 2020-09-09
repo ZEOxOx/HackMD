@@ -1,4 +1,4 @@
-# Python - 特別篇
+# g.Python - 函式(Function)
 
 ###### tags: `Python`
 
@@ -175,6 +175,10 @@ print(friedchicken()) #新的friedchicken函式
 ```
 
 >```79.0```
+
+## 5.local、global、nonlocal變數
+
+**(SKIP)**
 
 ## 時間戳記
 
