@@ -1,4 +1,4 @@
-# Python - 模組(Module)
+# h.Python - 模組(Module)
 
 ###### tags: `Python`
 
@@ -131,6 +131,10 @@ _g(5)
 
 > ```2```</br>
 > ```5```
+
+## 5.用 argparse 模組解析命令列參數
+
+**(SKIP)**
 
 ## 時間戳記
 
