@@ -1,4 +1,4 @@
-# Python - 基礎篇
+# a.Python - 基礎篇(Basis)
 
 ###### tags: `Python`
 
@@ -145,6 +145,7 @@ bool(0)
 ## 6.基本Python風格與命名慣例
 
 * <font color="#0080FF">**底線開頭或結尾的名稱**</font>
+
 > <font color="#EA0000">**Py之父 Guido van Rossum 的一個重要見解是:『閱讀程式碼的頻率遠高於撰寫』**</font>
 
 | 類別 | 說明 |
