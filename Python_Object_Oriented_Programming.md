@@ -250,3 +250,136 @@ circle_cm.Circle.total_area()
 > ```15.70795```</br>
 > ```31.415899999999997```
 
+## 5.類別的繼承 (inheritance)
+
+* <font color="#0080FF">**未繼承的情況，增加新的類別**</font>
+
+```python=+
+#同樣都有屬性x,y
+class Square:
+    def __init__(self,s = 1,x = 0,y = 0):
+        self.side = s
+        self.x = x
+        self.y = y
+
+class Circle:
+    def __init__(self,r = 1,x = 0,y = 0):
+        self.radius = r
+        self.x = x
+        self.y = y
+```
+##
+* <font color="#0080FF">**將相似類別繼承到相同的父類別a**</font>
+
+```python=+
+class Shape:
+    def __init__(self,x,y):
+        #將相同屬性x,y寫成父類別
+        self.x = x
+        self.y = y
+        
+class Square(Shape):
+    def __init__(self,s = 1,x = 0,y = 0):
+        super().__init__(x,y) #繼承時必須先呼叫自己父類別的__init__方法
+        '''Shape.__init__(self,x,y) 也可以，但寫死名稱不推薦'''
+        self.side = s #再進行屬於自己的初始化動作
+        
+class Circle(Shape):
+    def __init__(self,r = 1,x = 0,y = 0):
+        super().__init__(x,y) #繼承時必須先呼叫自己父類別的__init__方法
+        self.radius = r #再進行屬於自己的初始化動作
+```
+## 
+* <font color="#0080FF">**將相似類別繼承到相同的父類別b**</font>
+
+```python=+
+class Shape:
+    def __init__(self,x,y):
+        #將相同屬性x,y寫成父類別
+        self.x = x
+        self.y = y
+    
+    #新增一個共同繼承的方法
+    def move(self,delta_x,delta_y):
+        self.x = self.x + delta_x
+        self.y = self.y + delta_y
+        
+class Square(Shape):
+    def __init__(self,s = 1,x = 0,y = 0):
+        super().__init__(x,y) #繼承時必須先呼叫自己父類別的__init__方法
+        '''Shape.__init__(self,x,y) 也可以，但寫死名稱不推薦'''
+        self.side = s #再進行屬於自己的初始化動作
+        
+class Circle(Shape):
+    def __init__(self,r = 1,x = 0,y = 0):
+        super().__init__(x,y) #繼承時必須先呼叫自己父類別的__init__方法
+        self.radius = r #再進行屬於自己的初始化動作
+```
+##
+* <font color="#0080FF">**(續)呼叫父類別方法**</font>
+
+```python=+
+c1 = Circle(5)#建立物件
+print(c1.x,c1.y,c1.radius)
+
+c1.move(3,4)
+print(c1.x,c1.y,c1.radius)
+```
+
+> ```0 0 5```</br>
+> ```3 4 5```
+
+## 6.類別變數與物件變數的繼承
+
+* <font color="#0080FF">**兩個不同的類別定義的繼承關係**</font>
+
+```python=+
+class P:
+    z = 'Hello'
+    def set_p(self):
+        self.x = 'Class P'
+    def print_p(self):
+        print(self.x)
+        
+class C(P):
+    def set_c(self):
+        self.x = 'Class C'
+    def print_c(self):
+        print(self.x)
+```
+##
+* <font color="#0080FF">**(續)參照相同的物件變數名稱**</font>
+
+```python=+
+c1 = C()
+c1.set_p()
+c1.print_p() #Class P
+
+c1.print_c() #Class P
+
+c1.set_c()
+c1.print_c() #Class C
+
+c1.print_p() #Class C
+```
+
+> ```Class P```</br>
+> ```Class P```</br>
+> ```Class C```</br>
+> ```Class C```</br>
+##
+* <font color="#0080FF">**(續)繼承自父類別的類別變數**</font>
+
+```python=+
+c1.z,C.z,P.z
+
+C.z = 'Bonjour'
+c1.z,C.z,P.z
+
+c1.z = 'Ciao'
+c1.z,C.z,P.z
+```
+
+> ```('Hello', 'Hello', 'Hello')```</br>
+> ```('Bonjour', 'Bonjour', 'Hello')```</br>
+> ```('Ciao', 'Bonjour', 'Hello')```
