@@ -252,7 +252,7 @@ circle_cm.Circle.total_area()
 
 ## 5.類別的繼承 (inheritance)
 
-* <font color="#0080FF">**未繼承的情況，增加新的類別**</font>
+* <font color="#0080FF">**未繼承的情況，直接增加新的類別**</font>
 
 ```python=+
 #同樣都有屬性x,y
@@ -373,13 +373,155 @@ c1.print_p() #Class C
 ```python=+
 c1.z,C.z,P.z
 
-C.z = 'Bonjour'
+C.z = 'Bonjour' #C原本沒有z變數，會建立出一個類別變數(和P的不同)
 c1.z,C.z,P.z
 
-c1.z = 'Ciao'
+c1.z = 'Ciao' #c1原本沒有z變數，會建立出一個物件變數
 c1.z,C.z,P.z
 ```
 
 > ```('Hello', 'Hello', 'Hello')```</br>
 > ```('Bonjour', 'Bonjour', 'Hello')```</br>
 > ```('Ciao', 'Bonjour', 'Hello')```
+
+## 7.類別基礎的重點複習
+
+* <font color="#0080FF">**繼承包含類別方法、靜態方法的綜合應用**</font>
+
+```python=+
+class Shape:
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+    def move(self,delta_x,delta_y):
+        self.x = self.x + delta_x
+        self.y = self.y + delta_y
+
+class Circle(Shape):
+    pi = 3.14159
+    all_circles = []
+    def __init__(self,r = 1,x = 0,y = 0):
+        super().__init__(x,y)
+        self.radius = r
+        self.all_circles.append(self)
+    
+    @staticmethod
+    def circle_area(radius): #靜態方法不需要self或cls參數
+        return Circle.pi * radius * radius
+    
+    @classmethod
+    def total_area(cls): #類別方法會傳遞類別本身作為第一個參數
+        total = 0
+        for c in cls.all_circles:
+            total = total + cls.circle_area(c.radius)
+        return total
+```
+##
+* <font color="#0080FF">**(續)綜合測試**</font>
+
+```python=+
+c1 = Circle()
+c1.radius,c1.x,c1.y
+
+c2 = Circle(2,1,1)
+c2.radius,c2.x,c2.y
+
+c2.move(2,2)
+c2.radius,c2.x,c2.y
+
+Circle.all_circles #就是c1,c2
+[c1,c2]
+
+Circle.total_area() #類別方法
+c2.total_area() #物件方法
+
+Circle.circle_area(c1.radius) #把靜態方法當公用函式直接呼叫
+c1.circle_area(c1.radius)
+```
+
+> ```(1, 0, 0)```</br>
+> ```(2, 1, 1)```</br>
+> ```(2, 3, 3)```</br>
+> ```[<__main__.Circle at 0x18ad2617908>, <__main__.Circle at 0x18ad2602f48>]```</br>
+> ```[<__main__.Circle at 0x18ad2617908>, <__main__.Circle at 0x18ad2602f48>]```</br>
+> ```15.70795```</br>
+> ```15.70795```</br>
+> ```3.14159```</br>
+> ```3.14159```
+
+## 8.私有變數與私有方法
+
+| 類別 | 說明 |
+| :------: | :-----------: |
+| _前單底線   | 是私有變數</br>但這是約定成俗的作法，使用者依舊可以使用 obj._x 來存取該變數</br>( 使用者應依舊視其為私有變數，不要隨便從外部存取 ) |
+| __前雙底線 | 是私有變數</br>外部無法透過 obj.__x 來存取，也可避免繼承時的名稱衝突 |
+##
+* <font color="#0080FF">**簡單的類別定義**</font>
+
+```python=+
+class Mine:
+    def __init__(self):
+        self.x = 2
+        self.__y = 3
+    def print_y(self):
+        print(self.__y)
+
+m = Mine()
+print(m.x)
+print(m.__y) #直接存取私有變數，引發錯誤!!
+
+m.print_y() #print_y不是私有方法
+```
+
+> ```2```</br>
+> ```AttributeError: 'Mine' object has no attribute '__y'```</br>
+> ```3```
+##
+* <font color="#0080FF">**修飾名稱**</font>
+
+> <font color="#EA0000">**Python 在真正執行程式碼時，會在私有方法和私有變數的名稱前面加上『_類別名稱』。如 : 將「_Mine」拼接成「_Mine__y」是為了防止繼承的名稱衝突，因此繼承的上下類別間可以有同名的私有變數與方法。若故意模擬這種拼接方式來強行存取也是可行的 (Java 或 其他程式語言通常不行)**</font>
+
+```python=+
+dir(m)
+```
+
+> ```['_Mine__y','__class__','__delattr__','__dict__','__dir__','__doc__','__eq__',...,'print_y','x']```
+
+## 9.(!)Python 中的 getter 與 setter
+
+* <font color="#0080FF">**以 @property 修飾器來實作更靈活的物件變數**</font>
+
+```python=+
+# @property可以將 method 變成物件變數
+class Temperature:
+    def __init__(self):
+        self._temp_fahr = 0
+        
+    @property #取代getter
+    def temp(self):
+        #自動將華氏溫度轉換為攝氏溫度
+        return (self._temp_fahr - 32) * 5 / 9
+        
+    @temp.setter
+    def temp(self,new_temp):
+        #自動將攝氏溫度轉換為華氏溫度
+        self._temp_fahr = new_temp * 9 / 5 + 32
+        
+t = Temperature()
+t._temp_fahr
+t.temp #getter
+
+t.temp = 34 #setter
+t._temp_fahr
+t.temp
+```
+
+> ```0```</br>
+> ```-17.77777777777778```</br>
+> ```93.2```</br>
+> ```34.0```
+
+
+## 時間戳記
+
+> [name=ZEOxO][time=Wed, Sep 9, 2020 16:12 PM][color=#907bf7]
