@@ -1,4 +1,4 @@
-# Python - 檔案讀寫
+# l.Python - 檔案讀寫
 
 ###### tags: `Python`
 
@@ -161,7 +161,7 @@ p_binary.read_bytes() #傳回位元組內容
 
 ## 5.標準輸入 / 輸出與重新導向
 
-* <font color="#0080FF">**將標準輸出「重新導向」及回復其原始值**</font>
+* <font color="#0080FF">**將標準輸出「重新導向」至檔案及回復其原始值**</font>
 
 ```python=+
 import sys,os
@@ -279,4 +279,4 @@ book['167']
 
 ## 時間戳記
 
-> [name=ZEOxO][time=Wed, Sep 8, 2020 13:15 PM][color=#907bf7]
+> [name=ZEOxO][time=Tue, Sep 8, 2020 16:15 PM][color=#907bf7]
