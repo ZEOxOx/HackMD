@@ -74,7 +74,7 @@ x
 ```
 
 > ```[1, 2, 3, 4, [5, 6, 7]]```
-
+##
 * <font color="#0080FF">**extend()**</font>
 
 ```python=+
@@ -86,7 +86,7 @@ x
 ```
 
 > ```[1, 2, 3, 4, 5, 6, 7]```
-
+##
 * <font color="#0080FF">**insert()**</font>
 
 ```python=+
@@ -101,7 +101,7 @@ print(x)
 
 > ```[1, 2, 'hello', 3]```</br>
 > ```['start', 1, 2, 'hello', 3]```
-
+##
 * <font color="#0080FF">**del()**</font>
 
 ```python=+
@@ -116,7 +116,7 @@ print(x)
 
 > ```['a', 'c', 7, 9, 11]```</br>
 > ```[7, 9, 11]```
-
+##
 * <font color="#0080FF">**remove()**</font>
 
 ```python=+
@@ -131,7 +131,7 @@ print(x)
 
 > ```[1, 2, 4, 3, 5]```</br>
 > ```[1, 2, 4, 5]```
-
+##
 * <font color="#0080FF">**reverse()**</font>
 
 ```python=+
@@ -142,7 +142,7 @@ x
 ```
 
 > ```[9, 7, 11, 3, 1]```
-
+##
 * <font color="#0080FF">**sort()**</font>
 
 ```python=+
@@ -172,7 +172,7 @@ print(x)
 > ```['Enchanting', 'Life', 'is']```</br>
 > ```[[2, 3], [2, 9], [3, 2], [3, 5], [4, 1]]```</br>
 > ```[2, 1, 0]```
-
+##
 * <font color="#0080FF">**sorted()**</font>
 
 ```python=+
@@ -191,7 +191,7 @@ print('x:',x) #不會影響x串列
 > ```x: [4, 3, 2, 1]```</br>
 > ```y: ['one', 2, 3, 4]```</br>
 > ```x: [4, 3, 2, 1]```</br>
-
+##
 * <font color="#0080FF">**index()**</font>
 
 ```python=+
@@ -203,7 +203,7 @@ x.index(5)
 
 > ```3```</br>
 > ```ValueError: 5 is not in list```
-
+##
 * <font color="#0080FF">**count()**</font>
 
 ```python=+
@@ -217,7 +217,7 @@ x.count(4)
 > ```3```</br>
 > ```2```</br>
 > ```0```
-
+##
 * <font color="#0080FF">**min()、max()、sum()**</font>
 
 ```python=+
@@ -256,6 +256,7 @@ print(word_list)
 
 word_list = ['HELLO','my','name','is','ZEOxO']
 word_list.sort(key = campare_num_of_chars)
+#只要設為key的函式會回傳數字就可以做比較!
 print(word_list)
 ```
 
