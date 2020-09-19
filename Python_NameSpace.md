@@ -1,4 +1,4 @@
-# Python - 命名空間(namespace)
+# i.Python - 命名空間(namespace)
 
 ###### tags: `Python`
 
@@ -94,7 +94,7 @@ def f(x):
     print('離開 local: ',locals().keys())
 ```
 ##
-* <font color="#0080FF">**名稱的可視範圍**</font>
+* <font color="#0080FF">**(!)模組內名稱的可視範圍**</font>
 
 ```python=+
 import scopetest
@@ -134,7 +134,7 @@ print(counter.num)
 > ```0```</br>
 > ```1```
 ##
-* <font color="#0080FF">**使用 from ... import ... 匯入**</font>
+* <font color="#0080FF">**(!)使用 from ... import ... 匯入**</font>
 
 ```python=+
 from counter import num,add #直接掛在主程式命名空間中
