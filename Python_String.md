@@ -1,4 +1,4 @@
-# Python - 字串(String)
+# e.Python - 字串(String)
 
 ###### tags: `Python`
 
@@ -105,7 +105,7 @@ print(x.split(None,2))
 > ```['a\nb', 'c', 'd']```</br>
 > ```['a', 'b', 'c d']```
 ##
-* <font color="#0080FF">**float()**</font>
+* <font color="#0080FF">**float() 將字串轉為浮點數**</font>
 
 ```python=+
 float('123.456')
@@ -117,7 +117,7 @@ float('xxyy')
 > ```123.0```</br>
 > ```ValueError: could not convert string to float: 'xxyy'```
 ##
-* <font color="#0080FF">**int()**</font>
+* <font color="#0080FF">**int() 將字串轉為數字**</font>
 
 ```python=+
 int('3333')
@@ -220,7 +220,6 @@ print(x.rfind('ss'))
 > ```1```</br>
 > ```-1```</br>
 > ```2```</br>
-> ```5```</br>
 > ```-1```</br>
 > ```5```</br>
 > ```-1```</br>
@@ -288,8 +287,8 @@ print(x.title()) #將所有單字的第一個字元為大寫、其餘小寫
 
 > ```Hi, my name is zeoxo !!```</br>
 > ```Hi, My Name Is Zeoxo !!```
-
-* <font color="#0080FF">**swapcase()、expandtabs()**</font>
+##
+* <font color="#0080FF">**(!)swapcase()、expandtabs()**</font>
 
 ```python=+
 x = 'hi,\tmy\tname\tis\tZEOxO !!'
@@ -300,7 +299,7 @@ print(x.expandtabs(1)) #將字串內定位符號轉為指定數目的空格(如1
 
 > ```HI,	　MY	　NAME	　is 　zeoXo !!```</br>
 > ```hi, my name is ZEOxO !!```
-
+##
 * <font color="#0080FF">**ljust()、rjust()**</font>
 
 ```python=+
