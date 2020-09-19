@@ -1,4 +1,4 @@
-# Python - 基本資料結構(List)
+# b.Python - 基本資料結構(List)
 
 ###### tags: `Python`
 
@@ -39,7 +39,7 @@ print('x:',x) #會影響x串列
 > ```y: ['one', 'second', 'third', 'fourth']```</br>
 > ```x: ['one', 'second', 'third', 'fourth']```</br>
 ## 
-* <font color="#0080FF">**更改串列的元素**</font>
+* <font color="#0080FF">**(!)更改串列的元素**</font>
 
 ```python=+
 x = [1,2,3,4]
