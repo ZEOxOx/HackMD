@@ -25,7 +25,7 @@ file = open('C:\\Users\\tonyc\\pythonwork\\document\\hello.txt','w')
 file.write('Hello World!')
 file.close()
 ```
-
+##
 <font color="#0080FF">**hello.txt**</font>
 
 ```python=+
@@ -81,7 +81,7 @@ file.close() #readline 和 readlines 皆可用參數指定每次讀取資料量
 
 ```python=+
 file = open('C:\\Users\\tonyc\\pythonwork\\document\\test.txt','r')
-count = 0
+
 for line in file: #會包含換行符號
     print(line)
 file.close()
@@ -113,6 +113,7 @@ myfile.write('Hello\nWorld')
 
 ```python=+
 #檔案內容複製( 驗證 writelines() 是 readlines() 的反函式 )
+path = os.path.join(os.pardir,'document','myfile.txt')
 input_file = open(path,'r')
 lines = input_file.readlines() #readlines為陣列格式
 input_file.close()
