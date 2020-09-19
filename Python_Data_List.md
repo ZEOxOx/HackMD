@@ -92,7 +92,7 @@ x
 ```python=+
 x = [1,2,3]
 
-x.insert(-1,'hello')
+x.insert(-1,'hello') #(注意!)insert第一個引數為-1時並不是加到最後面 
 print(x)
 
 x.insert(0,'start')
