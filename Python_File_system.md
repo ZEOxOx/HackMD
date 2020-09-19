@@ -56,10 +56,14 @@ os.chdir('C:/Windows/temp') #這兩種路徑在 Windows 都可以使用
 * <font color="#0080FF">**os.path.join() 依照作業系統自動建立路徑**</font>
 
 ```python=+
+import os
 path1 = os.path.join('mydir','bin')
 path2 = os.path.join('utils','disktools','chkdisk')
 print(os.path.join(path1,path2)) #為了可攜性，較長的檔案路徑應如此連接
 ```
+
+> ```mydir/bin/utils/disktools/chkdisk```
+
 ##
 * <font color="#0080FF">**os.path.split()**</font>
 
@@ -190,7 +194,7 @@ os.name #大多數 Windows 作業系統都被標識為「nt」
 
 > ```'nt'```
 ##
-* <font color="#0080FF">**利用 os.name 決定根目錄的形式**</font>
+* <font color="#0080FF">**(!)利用 os.name 決定根目錄的形式**</font>
 
 ```python=+
 import os
