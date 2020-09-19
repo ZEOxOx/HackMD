@@ -65,7 +65,7 @@ sys.path
 > ```['C:\\Users\\tonyc\\pythonwork\\Python_dev','C:\\Users\\tonyc\\anaconda3\\envs\\tensorflow-gpu\\python37.zip','C:\\Users\\tonyc\\anaconda3\\envs\\tensorflow-gpu\\DLLs','C:\\Users\\tonyc\\anaconda3\\envs\\tensorflow-gpu\\lib',...]```
 
 ## 3.推薦的自訂模組存放目錄
-* <font color="#0080FF">**推薦的自訂模組存放目錄(.pth檔)**</font>
+* <font color="#0080FF">**(!)推薦的自訂模組存放目錄(.pth檔)**</font>
 
 > <font color="#EA0000">**在 Windows 中，「.pth檔」可存放在 sys.prefix 變數所指向的目錄中**</font>
 
@@ -87,6 +87,10 @@ C:\Users\tonyc\pythonwork\mymodule #絕對路徑
 ```
 ##
 <font color="#0080FF">**sys.path**</font>
+
+```python=+
+sys.path
+```
 
 >```[...,'C:\\Users\\tonyc\\anaconda3\\envs\\tensorflow-gpu\\mymodule','C:\\Users\\tonyc\\pythonwork\\mymodule',...]```
 
