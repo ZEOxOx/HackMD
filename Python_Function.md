@@ -35,7 +35,7 @@ x
 
 > ```[1, 2]```
 ## 
-* <font color="#0080FF">**用可變物件作為參數預設值的問題**</font>
+* <font color="#0080FF">**(!)用可變物件作為參數預設值的問題**</font>
 
 ```python=+
 def data_append(v,ls = []):
@@ -50,7 +50,7 @@ data_append(5)
 > ```[3]```</br>
 > ```[3,5]```
 ## 
-* <font color="#0080FF">**(續)用可變物件作為參數預設值的問題**</font>
+* <font color="#0080FF">**(!)(續)用可變物件作為參數預設值的問題**</font>
 
 ```python=+
 def data_append(v,ls = None):
@@ -78,6 +78,9 @@ tt = {'FtoK':lambda deg_f:273.15 + (deg_f - 32) * 5/9,
 print(tt['FtoK'](32))
 print(tt['CtoK'](0))
 ```
+
+> ```273.15```</br>
+> ```273.15```
 
 ## 3.Generator 產生器(走訪器)函式
 
@@ -161,7 +164,7 @@ print(friedchicken()) #新的friedchicken函式
 
 >```79.0```
 ##
-* <font color="#0080FF">**修飾器(語法糖)**</font>
+* <font color="#0080FF">**(!)修飾器(語法糖)**</font>
 
 ```python=+
 def sidedish1(meal):
