@@ -178,7 +178,7 @@ print(x)
 ```python=+
 x = [4,3,2,1]
 
-y = sorted(x)
+y = sorted(x) #建立了一個新的「y」串列
 print('y:',y)
 print('x:',x)
 
