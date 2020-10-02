@@ -155,7 +155,7 @@ x_train_normalize = x_train/255
 x_test_normalize = x_test/255
 ```
 ##
-* <font color="#0080FF">**將圖片(Image)之數值 正規化**</font>
+* <font color="#0080FF">**查看第一筆圖片(Image)之數值 正規化**</font>
 ```python=+
 x_train_normalize[0]
 ```
