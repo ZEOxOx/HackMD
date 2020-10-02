@@ -31,8 +31,8 @@ print('train_data =',len(x_train_image))
 print(' test_data =',len(x_test_image))
 ```
 
-> ```train_data = 60000```
-> ``` test_data = 10000```
+> ```train_data = 60000```</br>
+> ``` test_data = 10000```</br>
 ##
 * <font color="#0080FF">**查看訓練資料**</font>
 
@@ -42,8 +42,8 @@ print('x_test_image =',x_test_image.shape)
 print('y_test_label =',y_test_label.shape)
 ```
 
-> ```測試資料：```
-> ```x_test_image = (10000, 28, 28)```
+> ```測試資料：```</br>
+> ```x_test_image = (10000, 28, 28)```</br>
 > ```y_test_label = (10000,)```
 ##
 * <font color="#0080FF">**查看驗證資料**</font>
@@ -54,11 +54,11 @@ print('x_train_image =',x_train_image.shape)
 print('y_train_label =',y_train_label.shape)
 ```
 
-> ```訓練資料：```
-> ```x_train_image = (60000, 28, 28)```
+> ```訓練資料：```</br>
+> ```x_train_image = (60000, 28, 28)```</br>
 > ```y_train_label = (60000,)```
 ##
-* <font color="#0080FF">**查看圖形(函式)**</font>
+* <font color="#0080FF">**顯示圖形 的函式**</font>
 
 ```python=+
 import matplotlib.pyplot as plt
@@ -69,10 +69,51 @@ def plot_image(image):
     plt.show()
 ```
 ##
-* <font color="#0080FF">**查看第一筆圖形**</font>
+* <font color="#0080FF">**顯示第一筆圖形 (Image)**</font>
 
 ```python=+
 plot_image(x_train_image[0])
 ```
 
 > ![](https://i.imgur.com/6p5Nbsb.png)
+##
+* <font color="#0080FF">**查看第一筆標籤 (Label)**</font>
+
+```python=+
+plot_image(x_train_image[0])
+```
+
+> ```5```
+##
+* <font color="#0080FF">**顯示多筆(Multiple)圖片 的函式**</font>
+
+```python=+
+import matplotlib.pyplot as plt
+def plot_images_labels_prediction(images,labels,prediction,idx,num = 10):
+  fig = plt.gcf()
+  fig.set_size_inches(12,14)
+  if num >= 25:num = 25
+  for i in range(0,num):
+    ax = plt.subplot(5,5,i+1)
+    ax.imshow(images[idx],cmap='binary')
+    title = 'label = ' + str(labels[idx])
+    if(len(prediction)) > 0:
+      title += ',predict = ' + str(prediction[idx])
+    ax.set_title(title,fontsize = 10)
+    ax.set_xticks([]);ax.set_yticks([])
+    idx += 1
+  plt.show
+```
+##
+* <font color="#0080FF">**顯示多筆圖片**</font>
+
+```python=+
+plot_images_labels_prediction(x_train_image,y_train_label,[],0,10)
+```
+
+> ![](https://i.imgur.com/UGJ392u.png)
+
+
+## 時間戳記
+
+> [name=ZEOxO][time=Fri, Oct 2, 2020 14:53 PM][color=#907bf7]
