@@ -127,6 +127,9 @@ print(x)
 
 x.remove(3)
 print(x)
+
+#建議在刪除前用「in」來檢查該元素是否存在陣列
+#因為若無法找到要刪除的元素，會引發錯誤
 ```
 
 > ```[1, 2, 4, 3, 5]```</br>
@@ -158,7 +161,7 @@ x = ['Life','is','Enchanting']
 x.sort()
 print(x)
 
-x = [[3,5],[2,9],[2,3],[4,1],[3,2]] #串列內的元素是list也可以排列
+x = [[3,5],[2,9],[2,3],[4,1],[3,2],[2,3,4]] #串列內的元素是list也可以排列
 x.sort()
 print(x)
 
@@ -170,7 +173,7 @@ print(x)
 > ```[0, 1, 2, 3, 4, 8]```</br>
 > ```TypeError: '<' not supported between instances of 'str' and 'int'```</br>
 > ```['Enchanting', 'Life', 'is']```</br>
-> ```[[2, 3], [2, 9], [3, 2], [3, 5], [4, 1]]```</br>
+> ```[[2, 3], [2, 3, 4], [2, 9], [3, 2], [3, 5], [4, 1]]```</br>
 > ```[2, 1, 0]```
 ##
 * <font color="#0080FF">**sorted()**</font>
@@ -179,18 +182,19 @@ print(x)
 x = [4,3,2,1]
 
 y = sorted(x) #建立了一個新的「y」串列
-print('y:',y)
 print('x:',x)
+print('y:',y)
 
 y[0] = 'one'
-print('y:',y)
-print('x:',x) #不會影響x串列
+print('x:',x)
+print('y:',y) #不會影響x串列
 ```
 
+> ```x: [4, 3, 2, 1]```</br>
 > ```y: [1, 2, 3, 4]```</br>
 > ```x: [4, 3, 2, 1]```</br>
-> ```y: ['one', 2, 3, 4]```</br>
-> ```x: [4, 3, 2, 1]```</br>
+> ```y: ['one', 2, 3, 4]```
+
 ##
 * <font color="#0080FF">**index()**</font>
 
@@ -256,25 +260,12 @@ print(word_list)
 
 word_list = ['HELLO','my','name','is','ZEOxO']
 word_list.sort(key = campare_num_of_chars)
-#只要設為key的函式會回傳數字就可以做比較!
+#只要設為key的函式會回傳大小就可以做比較!
 print(word_list)
 ```
 
 > ```['HELLO', 'ZEOxO', 'is', 'my', 'name']```</br>
 > ```['my', 'is', 'name', 'HELLO', 'ZEOxO']```
-##
-* <font color="#0080FF">**使用「*」算符將list初始化**</font>
-
-```python=+
-x = [None] * 4
-y = [[0] * 3] * 3
-
-print(x)
-print(y)
-```
-
-> ```[None, None, None, None]```</br>
-> ```[[0, 0, 0], [0, 0, 0], [0, 0, 0]]```
 ##
 * <font color="#0080FF">**使用「in」算符測試某元素值是否存在**</font>
 
@@ -290,6 +281,19 @@ print(y)
 > ```False```</br>
 > ```False```</br>
 > ```True```
+##
+* <font color="#0080FF">**使用「*」算符將list初始化**</font>
+
+```python=+
+x = [None] * 4
+y = [[0] * 3] * 3
+
+print(x)
+print(y)
+```
+
+> ```[None, None, None, None]```</br>
+> ```[[0, 0, 0], [0, 0, 0], [0, 0, 0]]```
 ##
 * <font color="#0080FF">**使用「+」算符來串聯list**</font>
 
