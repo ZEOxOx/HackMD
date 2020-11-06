@@ -347,25 +347,25 @@ deep = copy.deepcopy(original)
 #[深層拷貝]則是獨立於原始list，更改deep的list不會對original造成影響
 
 shallow[1] = 2
-print(shallow)
-print(original)
+print("shallow:",shallow)
+print("original:",original)
 
 shallow[0][0] = 'zero'
 #不可寫成「shallow[0] = ['zero']」因為會參照到新的陣列
-print(shallow)
-print(original)
+print("shallow:",shallow)
+print("original:",original)
 
 deep[0][0] = 5
-print(deep)
-print(original)
+print("deep:",deep)
+print("original:",original)
 ```
 
-> ```[[0], 2]```</br>
-> ```[[0], 1]```</br>
-> ```[['zero'], 2]```</br>
-> ```[['zero'], 1]```</br>
-> ```[[5], 1]```</br>
-> ```[['zero'], 1]```
+> ```shallow: [[0], 2]```</br>
+> ```original: [[0], 1]```</br>
+> ```shallow: [['zero'], 2]```</br>
+> ```original: [['zero'], 1]```</br>
+> ```deep: [[5], 1]```</br>
+> ```original: [['zero'], 1]```
 
 ## 時間戳記
 
