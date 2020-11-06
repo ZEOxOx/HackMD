@@ -1,4 +1,4 @@
-# Python - 基本資料結構(Tuple)
+# c.Python - 基本資料結構(Tuple)
 
 ###### tags: `Python`
 
@@ -31,7 +31,7 @@ x
 
 ## 2.元組的基礎
 
-* <font color="#0080FF">**Tuple 基礎a(可視為不可變動的List)**</font>
+* <font color="#0080FF">**Tuple 的基礎(可視為不可變動的List)**</font>
 
 ```python=+
 x = ('a','b','c')
@@ -53,7 +53,7 @@ print(5 not in x)
 > ```False```</br>
 > ```True```
 ## 
-* <font color="#0080FF">**Tuple 基礎b(可視為不可變動的List)**</font>
+* <font color="#0080FF">**(續)Tuple 的基礎(可視為不可變動的List)**</font>
 ```python=+
 x = ('a','b','c')
 
@@ -70,10 +70,12 @@ print(x + (1,2))
  
 ## 3.元組的自動解包、自動打包
 
-* <font color="#0080FF">**Tuple 的自動解包、自動打包a**</font>
+* <font color="#0080FF">**Tuple 的自動解包、自動打包**</font>
 
 ```python=+
-(one,two,three,four) = (1,2,3,4)
+#Python會將所有逗號分隔的資料自動打包為Tuple
+#接者再解包給「one,two,three,four」
+one,two,three,four = 1,2,3,4
 print(one)
 print(two)
 
@@ -90,13 +92,14 @@ print('a:',a,'b:',b)
 > ```a: 9 b: 3```</br>
 > ```a: 3 b: 9```
 ##
-* <font color="#0080FF">**Tuple 的自動解包、自動打包b**</font>
+* <font color="#0080FF">**(續)Tuple 的自動解包、自動打包**</font>
 
 ```python=+
 #Python會將所有逗號分隔的資料自動打包為Tuple
 a = 1,2,3
 b = 1,
-#多重指定變數時自動解包
+
+#多重指定變數時自動解包(只要是序列型別都可以)
 v1,v2,v3 = [1,2,3]
 v4,v5,v6 = 'abc'
 
@@ -111,7 +114,7 @@ print(v5)
 > ```1```</br>
 > ```b```
 ## 
-* <font color="#0080FF">**Tuple 的自動解包、自動打包c**</font>
+* <font color="#0080FF">**(續)Tuple 的自動解包、自動打包**</font>
 
 ```python=+
 def get_user_info(id):
