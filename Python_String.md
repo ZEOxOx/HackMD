@@ -333,7 +333,7 @@ x.append([3,4])
 > ```'[1, 2, 3]'```</br>
 > ```'the list x is [1, 2, [3, 4]]'```
 ##
-* <font color="#0080FF">**repr() 傳入物件參數a**</font>
+* <font color="#0080FF">**repr() 傳入物件參數**</font>
 > <font color="#EA0000">**(!)repr非常適合用來程式除錯**</font>
 
 ```python=+
@@ -342,7 +342,7 @@ repr(len) #將系統內建方法、物件作為參數傳入
 
 > ```'< built-in function len >'```
 ##
-* <font color="#0080FF">**repr() 傳入物件參數b**</font>
+* <font color="#0080FF">**(續)repr() 傳入物件參數**</font>
 
 ```python=+
 from datetime import datetime
@@ -382,7 +382,7 @@ repr(now)
 import string
 string.whitespace #可透過存取「string.whitespace」常數找到
 
-' \t\n\r\v\f'
+' \t\n\r\v\f' #指的就是這些字元符號
 ```
 
 > ```' \t\n\r\x0b\x0c'```</br>
