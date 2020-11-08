@@ -1,4 +1,4 @@
-# b.Python 速成班(進階)
+# a.Python 速成班(進階)
 
 ###### tags: `Data Sicnce From Scratch`
 
@@ -446,7 +446,7 @@ assert smallest_items([])
 
 > ```AssertionError: 空項目不會有最小項```
 
-## zip(參數壓合) 與 *(參數拆分)
+## 14.zip(參數壓合) 與 *(參數拆分)
 
 * <font color="#0080FF">**參數壓合 與 參數拆分**</font>
 
@@ -476,6 +476,59 @@ result
 ```
 
 > ```5```
+
+## 15.args 與 kwargs
+
+* <font color="#0080FF">**將函式做為高階函式的輸入**</font>
+
+```python=+
+def doubler(f):
+  #定義一個新函式g，它會參照到f的結果
+  def g(x):
+    return 2*f(x)
+
+  return g #這裡要return g(注意!!)
+```
+##
+* <font color="#0080FF">**(續)將函式做為高階函式的輸入 測試**</font>
+
+```python=+
+def f1(x):
+  return x+1
+
+d = doubler(f1)
+assert d(3) == 8,"(3+1) * 2 應等於 8"
+assert d(-1) == 0,"(-1+1)*2 應等於 0"
+
+#當函式有多個參數就會出問題
+#若指定「assert d(1,2)」會出錯，因為d只能接收一個值
+```
+##
+* <font color="#0080FF">**args 與 kwargs 的簡單結構**</font>
+
+```python=+
+def magic(*args,**kwargs):
+  print("unnamed args:",args)
+  print("keyword args:",kwargs)
+
+magic(1,2,key = 'word',key2 = 'word2')
+```
+
+> ```unnamed args: (1, 2)```</br>
+> ```keyword args: {'key': 'word', 'key2': 'word2'}```
+##
+* <font color="#0080FF">**(續)args 與 kwargs 的簡單結構**</font>
+
+```python=+
+def other_way_magic(x,y,z):
+  return x+y+z
+
+x_y_list = [1,2]
+z_dict = {"z":3}
+
+#利用*和**為函式提供參數值
+assert other_way_magic(*x_y_list,**z_dict) == 6,"1+2+3 應等於 6"
+```
 
 ## 時間戳記
 
