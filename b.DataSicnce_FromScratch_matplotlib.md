@@ -1,4 +1,4 @@
-# b. 資料視覺化
+# b.資料科學 - matplotlib資料視覺化
 
 ###### tags: `Data Sicnce From Scratch`
 
