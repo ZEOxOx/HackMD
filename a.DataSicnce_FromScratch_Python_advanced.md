@@ -1,4 +1,4 @@
-# a.Python 速成班(進階)
+# a.資料科學 - Python 速成班(進階)
 
 ###### tags: `Data Sicnce From Scratch`
 
