@@ -36,3 +36,37 @@ plt.show()
 ```
 
 > ![](https://i.imgur.com/tjswIZj.png)
+
+##
+* <font color="#0080FF">**擷取特定資料**</font>
+
+```python=+
+my_slice = train_img[10:100]
+print(my_slice.shape)
+
+my_slice = train_img[10:100,:,:]
+print(my_slice.shape)
+
+my_slice = train_img[10:100,0:28,0:28]
+print(my_slice.shape)
+```
+
+> ```(90, 28, 28)```</br>
+> ```(90, 28, 28)```</br>
+> ```(90, 28, 28)```
+
+##
+* <font color="#0080FF">**擷取圖片特定範圍**</font>
+
+```python=+
+#切出每張圖片右下角14*14的像素
+my_slice = train_img[:,14:,14:]
+print(my_slice.shape)
+
+#擷取每張圖片居中的14*14像素
+my_slice = train_img[:,7:-7,7:-7]
+print(my_slice.shape)
+```
+
+> ```(60000, 14, 14)```</br>
+> ```(60000, 14, 14)```
