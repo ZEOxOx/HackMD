@@ -60,6 +60,9 @@ model.fit(train_img,train_label,epochs = 5,batch_size = 128)
 
 > ```Epoch 1/5```</br>
 > ```469/469 [==============================] - 1s 3ms/step - loss: 0.2562 - accuracy: 0.9262```</br>
+> ```Epoch 2/5```</br>
+> ```469/469 [==============================] - 1s 3ms/step - loss: 0.1040 - accuracy: 0.9688```</br>
+> ```...```</br>
 > ```<tensorflow.python.keras.callbacks.History at 0x7fa1e0141a58>```
 
 ##
@@ -74,6 +77,6 @@ print('test_acc:',test_acc)
 
 ## 時間戳記
 
-> [name=ZEOxO][time=Fri, Dec 06, 2020 15:03 PM][color=#907bf7]
+> [name=ZEOxO][time=Sun, Dec 06, 2020 15:30 PM][color=#907bf7]
 
 
