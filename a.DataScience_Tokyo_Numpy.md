@@ -2,25 +2,39 @@
 
 ###### tags: `Data Science Tokyo`
 
-## 1.Numpy的基礎
+## 1.函式庫
 
-* <font color="#0080FF">**Numpy 的匯入**</font>
-
-```python=
-#讀取numpy函式庫
-import numpy as np
-```
-##
-* <font color="#0080FF">**Numpy 魔術指令(Magic Command)**</font>
+* <font color="#0080FF">**Magic Command 魔術指令 (Numpy及Matplotlib)**</font>
 
 ```python=+
-#設定該檔案輸出顯示到小數點後第3位
-%precision 3
+%precision 3 #設定該檔案輸出顯示到小數點後第3位
+%matplotlib inline #設定在該位置顯示圖表，而不是另開視窗
 ```
 
-## 2.陣列的操作
+##
+* <font color="#0080FF">**匯入本章節函式庫**</font>
 
-* <font color="#0080FF">**陣列**</font>
+```python=+
+#為了使用下面的函式庫，請預先匯入
+import numpy as np
+import numpy.random as ran
+import scipy as sp
+import pandas as pd
+from pandas import Series, DataFrame
+
+#視覺化函式庫
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+import seaborn as sns
+%matplotlib inline
+
+#顯示到小數點第三位
+%precision 3 
+```
+
+## 2.Numpy 的基礎
+
+* <font color="#0080FF">**陣列的操作**</font>
 
 ```python=+
 #製作陣列
@@ -108,6 +122,100 @@ print("Ratio:",data.cumsum() / data.sum())
 > ```Sum: 55``` </br>
 > ```CumSum: [10 19 27 34 40 45 49 52 54 55]``` </br>
 > ```Ratio: [0.182 0.345 0.491 0.618 0.727 0.818 0.891 0.945 0.982 1.   ]``` </br>
+
+## 3.亂數
+
+* <font color="#0080FF">**亂數**</font>
+
+```python=+
+import numpy.random as ran
+ran.seed(0)
+
+rand_data = random.randn(10)
+print('含有10個亂數的陣列:',rand_data)
+```
+
+> ```含有10個亂數的陣列: [ 1.764  0.4    0.979  2.241  1.868 -0.977  0.95  -0.151 -0.103  0.411]```
+##
+* <font color="#0080FF">**資料的隨機取出**</font>
+
+```python=+
+data = np.array([9,2,3,4,10,6,7,8,1,5])
+
+#取出10個(允許重複，放回抽樣)
+print(ran.choice(data,10))
+
+#取出10個(不允許重複，不放回抽樣)
+print(ran.choice(data,10,replace=False))
+```
+
+> ```[ 7  8  8  1  2  6  5  1  5 10]```</br>
+> ```[10  2  7  8  3  1  6  5  9  4]```
+##
+* <font color="#0080FF">**(!)Numpy非常快**</font>
+
+```python=+
+n = 10*6
+normal_data = [ran.random() for _ in range(n)]
+
+#Numpy版
+numpy_random_data = np.array(normal_data)
+
+#calc time:總和
+#一般的處理
+%timeit sum(normal_data)
+
+#使用Numpy的處理
+%timeit np.sum(numpy_random_data)
+```
+
+> ```The slowest run took 5.40 times longer than the fastest. This could mean that an intermediate result is being cached.1000000 loops, best of 3: 422 ns per loop```</br>
+> ```The slowest run took 120.44 times longer than the fastest. This could mean that an intermediate result is being cached.100000 loops, best of 3: 4.14 µs per loop```
+
+## 4.矩陣
+
+* <font color="#0080FF">**矩陣的基礎**</font>
+
+```python=+
+np.arange(9)
+
+array1 = np.arange(9).reshape(3,3)
+print(array1)
+```
+
+> ```[[0 1 2]```</br>
+> ```[3 4 5]```</br>
+> ```[6 7 8]]```</br>
+##
+* <font color="#0080FF">**(續)矩陣的基礎**</font>
+
+```python=+
+print(array1[0,:]) #第一列，全部的行
+array1[:,0] #所有列，第一行
+```
+
+> ```[0 1 2]```</br>
+> ```array([0, 3, 6])```
+##
+* <font color="#0080FF">**矩陣的運算**</font>
+
+```python=+
+np.dot(array1,array2) #矩陣之積
+```
+
+> ```array([[ 42,  45,  48],```</br>
+> ```[150, 162, 174],```</br>
+> ```[258, 279, 300]])```
+##
+* <font color="#0080FF">**(續)矩陣的運算**</font>
+
+```python=+
+array1 * array2 #各自的元素進行乘法
+```
+
+> ```array([[  0,  10,  22],```</br>
+> ```[ 36,  52,  70],```</br>
+> ```[ 90, 112, 136]])```
 
 
 ## 時間戳記
