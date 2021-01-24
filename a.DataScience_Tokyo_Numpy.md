@@ -1,4 +1,4 @@
-# a.資料科學 - Numpy 基礎篇
+# b.資料科學 - Numpy 基礎篇
 
 ###### tags: `Data Science Tokyo`
 
