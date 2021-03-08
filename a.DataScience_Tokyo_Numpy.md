@@ -127,6 +127,8 @@ print("Ratio:",data.cumsum() / data.sum())
 
 * <font color="#0080FF">**亂數**</font>
 
+> <font color="#EA0000">**Python也有亂數功能，但資料科學領域通常使用「Numpy」的亂數功能**</font>
+
 ```python=+
 import numpy.random as ran
 ran.seed(0)
