@@ -366,7 +366,7 @@ repr(now)
 
 > ```'NO.1 is ZEOxO!!'```
 ## 
-* <font color="#0080FF">**指名參數格式化輸出(陣列)**</font>
+* <font color="#0080FF">**(!)指名參數格式化輸出(陣列)**</font>
 
 ```python=+
 "User name:{info[0]} ID:{info[1]} addr:{info[2]}".format(info = ['ZEOxO','123456','Taipei'])
