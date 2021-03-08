@@ -63,7 +63,7 @@ print("元素數量:",data.size)
 > ```維度: 1 ```</br>
 > ```元素數量: 10```
 ##
-* <font color="#0080FF">**對所有的維度進行運算a**</font>
+* <font color="#0080FF">**對所有的維度進行運算**</font>
 
 ```python=+
 #將各個數字乘上數倍(2倍為例)
@@ -72,7 +72,7 @@ data*2
 
 > ```array([18,  4,  6,  8, 20, 12, 14, 16,  2, 10])```
 ## 
-* <font color="#0080FF">**對所有的維度進行運算b**</font>
+* <font color="#0080FF">**(續)對所有的維度進行運算**</font>
 ```python=+
 print("乘法運算:",np.array([1,2,3,4,5,6,7,8,9,10]) * np.array([10,9,8,7,6,5,4,3,2,1]))
 print("連乘:",np.array([1,2,3,4,5,6,7,8,9,10]) ** 2)
@@ -95,7 +95,7 @@ print("排序之後:",data)
 > ```排序之後: [ 1  2  3  4  5  6  7  8  9 10]```
 
 ##
-* <font color="#0080FF">**排序(從大到小)**</font>
+* <font color="#0080FF">**(續)排序**</font>
 ```python=+
 #從尾端開始逐一取出排列
 data[::-1].sort()
@@ -177,8 +177,6 @@ numpy_random_data = np.array(normal_data)
 * <font color="#0080FF">**矩陣的基礎**</font>
 
 ```python=+
-np.arange(9)
-
 array1 = np.arange(9).reshape(3,3)
 print(array1)
 ```
@@ -200,6 +198,7 @@ array1[:,0] #所有列，第一行
 * <font color="#0080FF">**矩陣的運算**</font>
 
 ```python=+
+array2 = np.arange(9,18).reshape(3,3)
 np.dot(array1,array2) #矩陣之積
 ```
 
@@ -216,7 +215,18 @@ array1 * array2 #各自的元素進行乘法
 > ```array([[  0,  10,  22],```</br>
 > ```[ 36,  52,  70],```</br>
 > ```[ 90, 112, 136]])```
+## 
+* <font color="#0080FF">**製作元素為0或1的矩陣**</font>
 
+```python=+
+print(np.zeros((2,3),dtype = np.int64))
+print(np.ones((2,3),dtype = np.float64))
+```
+
+> ```[[0 0 0]```</br>
+> ``` [0 0 0]]```</br>
+> ```[[1. 1. 1.]```</br>
+> ``` [1. 1. 1.]]```
 
 ## 時間戳記
-> [name=ZEOxO][time=Sun, Jan 24, 2021 15:18 PM][color=#907bf7]
+> [name=ZEOxO][time=Mon, Mar 8, 2021 17:50 PM][color=#907bf7]
