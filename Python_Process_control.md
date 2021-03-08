@@ -31,7 +31,7 @@ print(com[rank])
 
 > ```Wonderful!!```
 ## 
-* <font color="#0080FF">**For 迴圈與 Tuple 解包多重設定變數**</font>
+* <font color="#0080FF">**(!)For 迴圈與 Tuple 解包多重設定變數**</font>
 
 ```python=+
 ls = [(1,2),(3,7),(9,5)]
@@ -48,18 +48,17 @@ print(result)
 
 ## 2.常用的 Method 與函式
 
-* <font color="#0080FF">**enumerate()**</font>
+* <font color="#0080FF">**enumerate() 將list、tuple元素取出並加上索引**</font>
 
 ```python=+
 x = ['a','b','c']
 
-#將list、tuple元素取出並加上索引
 list(enumerate(x))
 ```
 
 > ```[(0, 'a'), (1, 'b'), (2, 'c')]```
 ##
-* <font color="#0080FF">**enumerate 與迴圈**</font>
+* <font color="#0080FF">**enumerate() 與迴圈**</font>
 
 ```python=+
 ls = ['ZEOxO','Andy','Bob']
@@ -79,7 +78,7 @@ x = [1,2,3,4]
 y = ('a','b','c')
 
 z = zip(y,x) #只能結合3個對等的元素
-list(z)
+list(z) #必須使用list查看
 ```
 
 > ```[('a', 1), ('b', 2), ('c', 3)]```
@@ -158,9 +157,10 @@ print(x)
 
 > ```[0, 2, 3, 5, 6]```
 ##
-* <font color="#0080FF">**(續)改為從 List 後面開始刪除**</font>
+* <font color="#0080FF">**(續)用索引刪除 List 元素的隱藏 Bug**</font>
 
 ```python=+
+#改為從 List 後面開始刪除
 x = [ele for ele in range(0,8)]
 print(x)
 for i in range(len(x)-1,-1,-1):
