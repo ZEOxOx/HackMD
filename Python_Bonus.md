@@ -2,7 +2,9 @@
 
 ###### tags: `Python`
 
-
+## 1.Programming Concepts: Static vs. Dynamic Type Checking
+    
+* <font color="#0080FF">**Dynamic Type Checking**</font>
 
 ## 時間戳記
 
