@@ -18,6 +18,19 @@ print(x,type(x))
 
 > ```Hello <class 'str'>```</br>
 > ```5 <class 'int'>```
+##
+* <font color="#0080FF">**刪除變數**</font>
+
+```python=+
+a = 3 #用變數a作為物件「3」的標籤名稱 -> <!>記住此敘述
+print(a)
+
+del(a) #刪除變數a
+print(a)
+```
+
+> ```3```</br>
+> ```NameError: name 'a' is not defined```
 
 ## 2.數字
 
