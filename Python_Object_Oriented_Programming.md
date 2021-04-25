@@ -89,7 +89,7 @@ print(c2.area())
 
 ## 3.類別變數 (class variables)
 
-* <font color="#0080FF">**建立物件時傳遞引數、預設值**</font>
+* <font color="#0080FF">**建立物件時建立類別變數、傳遞引數、預設值**</font>
 
 ```python=+
 class Circle:
@@ -109,7 +109,7 @@ print(c2.area())
 > ```3.14159```</br>
 > ```28.27431```
 ##
-* <font color="#0080FF">**(!)物件的特殊屬性**</font>
+* <font color="#0080FF">**<!>物件的特殊屬性**</font>
 
 ```python=+
 Circle
@@ -121,7 +121,7 @@ c1.__class__.pi
 > ```__main__.Circle```</br>
 > ```3.14```
 ##
-* <font color="#0080FF">**(!)避免日後更改類別名稱的方法**</font>
+* <font color="#0080FF">**<!>避免日後更改類別名稱的方法**</font>
 
 ```python=+
 class Circ:
@@ -187,7 +187,7 @@ class Circle:
         return total
 ```
 ##
-* <font color="#0080FF">**(續)呼叫靜態方法**</font>
+* <font color="#0080FF">**呼叫靜態方法**</font>
 
 ```python=+
 import circle
@@ -234,7 +234,7 @@ class Circle:
         return total
 ```
 ##
-* <font color="#0080FF">**(續)呼叫類別方法**</font>
+* <font color="#0080FF">**呼叫類別方法**</font>
 
 ```python=+
 import circle_cm
@@ -269,7 +269,7 @@ class Circle:
         self.y = y
 ```
 ##
-* <font color="#0080FF">**將相似類別繼承到相同的父類別a**</font>
+* <font color="#0080FF">**將相似類別繼承到相同的父類別**</font>
 
 ```python=+
 class Shape:
@@ -290,7 +290,7 @@ class Circle(Shape):
         self.radius = r #再進行屬於自己的初始化動作
 ```
 ## 
-* <font color="#0080FF">**將相似類別繼承到相同的父類別b**</font>
+* <font color="#0080FF">**(續)將相似類別繼承到相同的父類別**</font>
 
 ```python=+
 class Shape:
@@ -316,7 +316,7 @@ class Circle(Shape):
         self.radius = r #再進行屬於自己的初始化動作
 ```
 ##
-* <font color="#0080FF">**(續)呼叫父類別方法**</font>
+* <font color="#0080FF">**呼叫父類別方法**</font>
 
 ```python=+
 c1 = Circle(5)#建立物件
@@ -348,7 +348,7 @@ class C(P):
         print(self.x)
 ```
 ##
-* <font color="#0080FF">**(續)參照相同的物件變數名稱**</font>
+* <font color="#0080FF">**參照相同的物件變數名稱**</font>
 
 ```python=+
 c1 = C()
@@ -368,7 +368,7 @@ c1.print_p() #Class C
 > ```Class C```</br>
 > ```Class C```</br>
 ##
-* <font color="#0080FF">**(續)繼承自父類別的類別變數**</font>
+* <font color="#0080FF">**繼承自父類別的類別變數**</font>
 
 ```python=+
 c1.z,C.z,P.z
@@ -417,7 +417,7 @@ class Circle(Shape):
         return total
 ```
 ##
-* <font color="#0080FF">**(續)綜合測試**</font>
+* <font color="#0080FF">**綜合測試**</font>
 
 ```python=+
 c1 = Circle()
