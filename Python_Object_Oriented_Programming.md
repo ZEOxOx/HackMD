@@ -35,7 +35,7 @@ class Circle:
     def __init__(self): # <-- c1被傳進這裡的self
         self.radius = 1
         
-c1 = Circle() #(注意!)c1物件會自動被傳入到上面的self
+c1 = Circle() #(important!)c1物件會自動被傳入到上面的self
 print(2 * 3.14 * c1.radius)
 
 c1.radius = 5
@@ -61,7 +61,7 @@ print(c1.area())
 c1.radius = 3
 print(c1.area())
 
-print(Circle.area(c1)) #(注意!)另外一種呼叫 c 物件 area 的方法
+print(Circle.area(c1)) #(important!)另外一種呼叫 c 物件 area 的方法
 ```
 
 > ```3.14159```</br>
@@ -148,7 +148,7 @@ print(c2.area())
 c1 = Circle(1)
 c2 = Circle(2)
 
-c1.pi = 3.14 #(注意!)此處為建立物件變數，而不是更改類別變數
+c1.pi = 3.14 #(important!)此處為建立物件變數，而不是更改類別變數
 c1.pi
 
 #若找不到物件變數時，會自動尋找同名的類別變數
@@ -179,7 +179,7 @@ class Circle:
         return self.__class__.pi * self.radius * self.radius
 
     @staticmethod
-    def total_area(): #(注意!)靜態方法不會傳遞物件本身作為第一個參數
+    def total_area(): #(important!)靜態方法不會傳遞物件本身作為第一個參數，因此不需要"self"
         '''用來計算 all_circles 這個 list 所有物件總面積的靜態方法'''
         total = 0
         for c in Circle.all_circles:
@@ -278,19 +278,28 @@ class Shape:
         self.x = x
         self.y = y
         
-class Square(Shape):
+class Square(Shape): #繼承(Shape)
     def __init__(self,s = 1,x = 0,y = 0):
+        #(important!)
+        #系統預設 -> 子類別建構第一句一定是「super()」 
+        
         super().__init__(x,y) #繼承時必須先呼叫自己父類別的__init__方法
-        '''Shape.__init__(self,x,y) 也可以，但寫死名稱不推薦'''
+        '''
+            Shape.__init__(self,x,y) 也可以，但寫死名稱不推薦
+            若現在不用Shape當父類別，則內部code需要更改多次
+        '''
         self.side = s #再進行屬於自己的初始化動作
         
-class Circle(Shape):
+class Circle(Shape): #繼承(Shape)
     def __init__(self,r = 1,x = 0,y = 0):
+        #(important!)
+        #系統預設 -> 子類別建構第一句一定是「super()」 
+        
         super().__init__(x,y) #繼承時必須先呼叫自己父類別的__init__方法
         self.radius = r #再進行屬於自己的初始化動作
 ```
 ## 
-* <font color="#0080FF">**(續)將相似類別繼承到相同的父類別**</font>
+* <font color="#0080FF">**將相似類別繼承到相同的父類別(續)**</font>
 
 ```python=+
 class Shape:
@@ -307,7 +316,7 @@ class Shape:
 class Square(Shape):
     def __init__(self,s = 1,x = 0,y = 0):
         super().__init__(x,y) #繼承時必須先呼叫自己父類別的__init__方法
-        '''Shape.__init__(self,x,y) 也可以，但寫死名稱不推薦'''
+        
         self.side = s #再進行屬於自己的初始化動作
         
 class Circle(Shape):
@@ -453,8 +462,8 @@ c1.circle_area(c1.radius)
 
 | 類別 | 說明 |
 | :------: | :-----------: |
-| _前單底線   | 是私有變數</br>但這是約定成俗的作法，使用者依舊可以使用 obj._x 來存取該變數</br>( 使用者應依舊視其為私有變數，不要隨便從外部存取 ) |
-| __前雙底線 | 是私有變數</br>外部無法透過 obj.__x 來存取，也可避免繼承時的名稱衝突 |
+| _前單底線   | 是私有變數、方法</br>但這是約定成俗的作法，使用者依舊可以使用 obj._x 來存取該變數</br>( 使用者應依舊視其為私有變數，不要隨便從外部存取 ) |
+| __前雙底線 | 是私有變數、方法</br>外部無法透過 obj.__x 來存取，也可避免繼承時的名稱衝突 |
 ##
 * <font color="#0080FF">**簡單的類別定義**</font>
 
@@ -487,24 +496,26 @@ dir(m)
 
 > ```['_Mine__y','__class__','__delattr__','__dict__','__dir__','__doc__','__eq__',...,'print_y','x']```
 
-## 9.(!)Python 中的 getter 與 setter
+## 9.<!>Python 中的 getter 與 setter
 
 * <font color="#0080FF">**以 @property 修飾器來實作更靈活的物件變數**</font>
 
 ```python=+
-# @property可以將 method 變成物件變數
+"""
+@property可以將 method 變成物件變數
+"""
 class Temperature:
     def __init__(self):
         self._temp_fahr = 0
         
     @property #取代getter
     def temp(self):
-        #自動將華氏溫度轉換為攝氏溫度
+        #自動將 *華氏溫度 轉換為 *攝氏溫度
         return (self._temp_fahr - 32) * 5 / 9
         
     @temp.setter
     def temp(self,new_temp):
-        #自動將攝氏溫度轉換為華氏溫度
+        #自動將 *攝氏溫度 轉換為 *華氏溫度
         self._temp_fahr = new_temp * 9 / 5 + 32
         
 t = Temperature()
