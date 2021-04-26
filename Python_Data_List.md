@@ -13,7 +13,7 @@ x[:3] #切最開頭的3份
 x[2:] #前兩份不要，然後切到最後
 x[-1:2] #第二個索引位置在第一個前面
 ```
-
+[^first]:
 > ```['first', 'second', 'third']```</br>
 > ```['third', 'fourth']```</br>
 > ```[]```</br>
@@ -39,7 +39,7 @@ print('x:',x) #會影響x串列
 > ```y: ['one', 'second', 'third', 'fourth']```</br>
 > ```x: ['one', 'second', 'third', 'fourth']```</br>
 ## 
-* <font color="#0080FF">**(!)更改串列的元素**</font>
+* <font color="#0080FF">**<!>更改串列的元素**</font>
 
 ```python=+
 x = [1,2,3,4]
@@ -60,7 +60,7 @@ print(x)
 > ```[1, 2, 3, 4, 5, 6, 7]```</br>
 > ```[-1, 0, 1, 2, 3, 4, 5, 6, 7]```</br>
 > ```[-1, 7]```
-> 
+
 ## 2.串列常用方法(method)與操作
 
 * <font color="#0080FF">**append()**</font>
@@ -248,7 +248,7 @@ list("Hello")
 
 > ```['H', 'e', 'l', 'l', 'o']```
 ##
-* <font color="#0080FF">**(!)自定義排序**</font>
+* <font color="#0080FF">**<!>自定義排序**</font>
 
 ```python=+
 def campare_num_of_chars(st):
@@ -306,7 +306,7 @@ print(z)
 
 ## 4.多層List與深層拷貝(deepcopy)
 
-* <font color="#0080FF">**(!)多層陣列 元素參照**</font>
+* <font color="#0080FF">**<!>多層陣列 元素參照**</font>
 
 ```python=+
 nested = [0]
@@ -337,7 +337,7 @@ print('original:',original)
 > ```nested: [2]```</br>
 > ```original: [[0], 1]```
 ##
-* <font color="#0080FF">**深層拷貝(deepcopy)**</font>
+* <font color="#0080FF">**<!>深層拷貝(deepcopy)**</font>
 
 ```python=+
 original = [[0],1]
