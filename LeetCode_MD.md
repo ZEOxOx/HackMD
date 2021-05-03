@@ -2,7 +2,7 @@
 
 ###### tags: Leet Code
 
-## 1.Two Sum
+##  1.Two Sum <font color="#11AA55">[Easy]</font>
 
 * <font color="#0080FF">**Code**</font>
 
@@ -21,7 +21,7 @@ Memory Usage: 14.2 MB, less than 98.18%
 
 ![](https://i.imgur.com/aKitedR.png)
 
-## 2.Invert Binary Tree
+## 2.Invert Binary Tree <font color="#11AA55">[Easy]</font>
 
 * <font color="#0080FF">**Code**</font>
 
@@ -42,7 +42,7 @@ Memory Usage: 14.2 MB, less than 74.02%
 
 ![](https://i.imgur.com/GB2ePe0.png)
 
-## 3.Delete Node in a Linked List
+## 3.Delete Node in a Linked List <font color="#11AA55">[Easy]</font>
 
 * <font color="#0080FF">**Code**</font>
 
@@ -59,7 +59,7 @@ Memory Usage: 14.9 MB, less than 30.96%
 
 ![](https://i.imgur.com/2es7qXO.png)
 
-## 4.Reverse String
+## 4.Reverse String <font color="#11AA55">[Easy]</font>
 
 * <font color="#0080FF">**Code**</font>
 
@@ -75,7 +75,7 @@ Memory Usage: 18.8 MB, less than 21.89%
 
 ![](https://i.imgur.com/YssQc3k.png)
 
-## 5.First Unique Character in a String
+## 5.First Unique Character in a String <font color="#11AA55">[Easy]</font>
 
 ![](https://i.imgur.com/5FWT5X4.png)
 
@@ -97,7 +97,7 @@ Memory Usage: 14.4 MB, less than 69.10%
 """
 ```
 
-## 6.Two City Scheduling
+## 6.Two City Scheduling <font color="FF8000">[Medium]</font>
 
 * <font color="#0080FF">**Code**</font>
 
