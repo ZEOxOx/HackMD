@@ -61,7 +61,7 @@ float(200)
 
 ## 3.字串
 
-* <font color="#0080FF">**長字串a**</font>
+* <font color="#0080FF">**長字串**</font>
 
 ```python
 #使用「"""」的缺點是會將換行字元也包含進來
@@ -79,7 +79,7 @@ print(long_string)
 > ```They appear in heraldry more often than any other ```
 > ```animal.They are an icon of courage and royalty.```
 ##
-* <font color="#0080FF">**長字串b**</font>
+* <font color="#0080FF">**長字串(續)**</font>
 
 ```python=+
 long_string = (
@@ -138,7 +138,7 @@ sqrt(-1) #一樣的程式敘述，產生不一樣的結果
 
 ## 5.None值
 
-* <font color="#0080FF">**None值**</font>
+* <font color="#0080FF">**布林運算**</font>
 
 ```python=+
 None == False
