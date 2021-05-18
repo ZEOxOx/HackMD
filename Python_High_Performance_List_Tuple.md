@@ -1,4 +1,4 @@
-# a.串列與元組
+# a.Python - 高效能串列與元組 (List & Tuple)
 
 ###### tags: `High Performance Python`
 
@@ -18,10 +18,10 @@
 %timeit l = range(10000000)
 ```
 
-> ```The slowest run took 8.84 times longer than the fastest. This could mean that an intermediate result is being cached.```
+> ```The slowest run took 8.84 times longer than the fastest. This could mean that an intermediate result is being cached.```</br>
 > ```10000000 loops, best of 5: 188 ns per loop```
 
-> ```The slowest run took 6.65 times longer than the fastest. This could mean that an intermediate result is being cached.```
+> ```The slowest run took 6.65 times longer than the fastest. This could mean that an intermediate result is being cached.```</br>
 > ```1000000 loops, best of 5: 240 ns per loop```
 ##
 * <font color="#0080FF">**為串列進行線性搜尋**</font>
