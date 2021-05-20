@@ -319,6 +319,18 @@ print(x.center(20,'!'))
 
 ## 7.字串的格式化輸出
 
+* <font color="#0080FF">**指名參數格式化輸出(format)**</font>
+ 
+```python=+
+st = '{0:10} are often called the "king of the beasts".'.format("Lion")
+st = '{0:>10} are often called the "king of the beasts".'.format("Lion")
+st = '{0:#>10} are often called the "king of the beasts".'.format("Lion")
+```
+
+> ```Lion       are often called the "king of the beasts".```</br>
+> ```　　　 Lion are often called the "king of the beasts".```</br>
+> ```######Lion are often called the "king of the beasts".```
+##
 * <font color="#0080FF">**指名參數格式化輸出(字典)**</font>
 
 ```python=+
