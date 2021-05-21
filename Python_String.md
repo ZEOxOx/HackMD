@@ -65,9 +65,49 @@ print(x)
 | \\t | 定位符號(Tab) |
 | \\v | 垂直定位符號(Vertical Tab) |
 ##
-* <font color="#0080FF">**數值(八進位和十六進位)以及Unicode轉義字元**</font>
+* <font color="#0080FF">**數值(八進位和十六進位)表示**</font>
 
-(SKIP)
+```python=+
+'m'
+'\155' #八進位轉義字元
+'\x6D' #十六進位轉義字元(大小寫皆可)
+```
+
+> ```'m'```</br>
+> ```'m'```</br>
+> ```'m'```
+## 
+* <font color="#0080FF">**轉義字元表示**</font>
+
+```python=+
+'\n' #換行符號
+'\012' #八進位轉義字元
+'\x0A' #十六進位轉義字元(大小寫皆可)
+```
+
+> ```'\n'```</br>
+> ```'\n'```</br>
+> ```'\n'```
+## 
+* <font color="#0080FF">**Unicode字串表示**</font>
+
+> <font color="#EA0000">**Python 3中所有的字串都是Unicode字串**</font>
+
+```python=+
+#透過Unicode名稱，表示Unicode字元
+unicode_a = '\N{LATIN SMALL LETTER A}' 
+unicode_a
+
+unicode_a_with_acute = '\N{LATIN SMALL LETTER A WITH ACUTE}' 
+unicode_a_with_acute
+
+"\u00E1" #透過\u後面跟著4碼16進位數字表示Unicode字元
+```
+
+> ```'a'```</br>
+> ```'á'```</br>
+> ```'á'```
+
 
 ## 4.字串常用的 Method 與函式
 
@@ -95,7 +135,7 @@ print(x.split(' ',9))
 
 x = 'a\nb c d'
 print(x.split(' ',2)) #指定只切「空白」字元(不會切轉義字元)
-print(x.split(None,2))
+print(x.split(None,2)) #不指定，則會切轉義字元
 ```
 
 > ```['HI,', 'my', 'name', 'is', 'ZEOxO', '!!']```</br>
@@ -241,15 +281,11 @@ x.count('ss')
 x =  "Mississippi"
 
 print(x.startswith('Miss'))
-print(x.startswith('Mist'))
 
-print(x.endswith('pi'))
-print(x.endswith('p'))
+print(x.endswith('pp'))
 print(x.endswith(('i','u'))) #可以tuple形式傳入多筆搜尋文字
 ```
 
-> ```True```</br>
-> ```False```</br>
 > ```True```</br>
 > ```False```</br>
 > ```True```
