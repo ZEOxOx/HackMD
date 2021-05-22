@@ -70,6 +70,8 @@ print(x)
 
 ## 3.字典(Dict)
 
+> <font color="#EA0000">**字典會自動依照索引排序 (如A-Z)**</font>
+
 * <font color="#0080FF">**dict 和 set 的宣告**</font>
 
 ```python=+
@@ -103,7 +105,7 @@ store.setdefault('lemon','No translation') #若該key不存在，則新增key-va
 store
 
 store.setdefault('banana','No translation') #若該key已存在，則不變
-store #<!>字典會自動依照索引排序
+store
 ```
 
 > ```'No translation'```</br>
@@ -131,6 +133,26 @@ down
 ```
 
 > ```{0: 'zero', 1: 'ONE', 2: 'TWO'}```
+##
+* <font color="#0080FF">**<!>以字典作為快取**</font>
+
+```python=+
+sole_cache = {}  #快取
+def sole(m,n,t):
+  if(m,n,t) in sole_cache:
+    #如果字典裡已經有此鍵
+    return sole_cache[(m,n,t)]
+  else:
+    #否則...對(m,n,t)做一些計算
+    result = m * n * t
+    sole_cache[(m,n,t)] = result
+    return result
+    
+sole(5,5,5)
+sole_cache
+```
+> ```125```</br>
+> ```{(5, 5, 5): 125}```
 
 ## 時間戳記
 
