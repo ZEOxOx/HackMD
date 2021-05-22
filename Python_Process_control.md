@@ -31,7 +31,7 @@ print(com[rank])
 
 > ```Wonderful!!```
 ## 
-* <font color="#0080FF">**(!)For 迴圈與 Tuple 解包多重設定變數**</font>
+* <font color="#0080FF">**<!>For 迴圈與 Tuple 解包多重設定變數**</font>
 
 ```python=+
 ls = [(1,2),(3,7),(9,5)]
@@ -52,7 +52,6 @@ print(result)
 
 ```python=+
 x = ['a','b','c']
-
 list(enumerate(x))
 ```
 
@@ -73,6 +72,8 @@ for i,name in enumerate(ls):
 ##
 * <font color="#0080FF">**zip()**</font>
 
+> <font color="#EA0000">**zip()函式能將「兩個可走訪」的物件結合起來**</font>
+
 ```python=+
 x = [1,2,3,4]
 y = ('a','b','c')
@@ -81,9 +82,45 @@ z = zip(y,x) #只能結合3個對等的元素
 list(z) #必須使用list查看
 ```
 
-> ```[('a', 1), ('b', 2), ('c', 3)]```
+## 3.生成式和產生器(Generator)
 
-## 3.布林值與運算式的真假運算
+* <font color="#0080FF">**List 生成式**</font>
+
+> <font color="#EA0000">**建立一個新的 List**</font>
+
+```python=+
+x = [1,2,3,4]
+
+x_squared = [item * item for item in x if item > 2]
+x_squared
+```
+> ```[9, 16]```
+##
+* <font color="#0080FF">**Dict 生成式**</font>
+
+```python=+
+x = [1,2,3,4]
+
+x_squared_dict = {item : item*item for item in x}
+x_squared_dict
+```
+
+> ```{1: 1, 2: 4, 3: 9, 4: 16}```
+##
+* <font color="#0080FF">**產生器(Generator)**</font>
+
+> <font color="#EA0000">**回傳一個產生器物件，可用for迴圈來走訪**</font>
+
+```python=+
+x = [1,2,3,4]
+
+x_squared = (item * item for item in x)
+x_squared
+```
+
+> ```<generator object <genexpr> at 0x7fc7cba96f50>```
+
+## 4.布林值與運算式的真假運算
 
 * <font color="#0080FF">**將 Python 物件作為布林值**</font>
 
@@ -105,7 +142,7 @@ print('None:',bool(None)) #None永遠為「False」
 > ```字典: False```</br>
 > ```None: False```
 ##
-* <font color="#0080FF">**(!)將 Python 物件作邏輯運算**</font>
+* <font color="#0080FF">**<!>將 Python 物件作邏輯運算**</font>
 
 ```python=+
 [2] and [3,4] #找到「False」則停止並回傳，若無則傳回最後一個值
@@ -118,22 +155,16 @@ print('None:',bool(None)) #None永遠為「False」
 > ```[]```</br>
 > ```[2]```</br>
 > ```5```
-##
-* <font color="#0080FF">**Short-circuit Evaluation**</font>
-
-(SKIP)
-
 ## 
-* <font color="#0080FF">**(!)將 Python 物件作布林運算**</font>
+* <font color="#0080FF">**Python 物件的 is - is not 判斷**</font>
 
 ```python=+
 x = [0]
 y = [x,1]
 print(x is y[0]) #比較參照值(id)
 
-x = [0]
-print(x is y[0])
-
+x = [0] #x的id被更改了
+print(x is y[0]) #比較參照值(id)
 print(x == y[0]) #兩者的值仍然相同
 ```
 
@@ -141,7 +172,19 @@ print(x == y[0]) #兩者的值仍然相同
 > ```False```</br>
 > ```True```
 
-## 4.補充內容
+##
+* <font color="#0080FF">**Short-circuit Evaluation 短路求值**</font>
+
+```python=+
+x = 0
+x <= 0 and print('x <= 0') #代替if-else判斷式
+```
+
+> ```x <= 0```
+
+
+
+## 5.補充內容
 
 * <font color="#0080FF">**用索引刪除 List 元素的隱藏 Bug**</font>
 
