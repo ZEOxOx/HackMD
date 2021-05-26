@@ -241,7 +241,7 @@ def add():
     config.n += 1
 ```
 ##
-* <font color="#0080FF">**<!!>全域變數的常見用途是讓不同模組間可以共用資料**</font>
+* <font color="#0080FF">**<!!>在模組內引入模組，即可共享該模組的變數(看Pmodule.py)**</font>
 ```python=+
 import config
 import Pmodule
