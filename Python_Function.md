@@ -231,9 +231,58 @@ print(friedchicken()) #新的friedchicken函式
 
 >```79.0```
 
-## 6.global、local、nonlocal變數
+## 6.global、nonlocal、local變數
 
-**(SKIP)**
+| 類型 | 說明 |
+| :------: | :-----------: |
+| **global** | 宣告「全域變數」 |
+| **nonlocal** | 宣告「上一層變數」 |
+| **local** | 宣告「區域變數」 |
+
+* <font color="#0080FF">**用global宣告全域變數**</font>
+
+```python=+
+def func():
+    global a #宣告a為全域變數
+    a = "local"
+    b = "local"
+  
+a = "global"
+b = "global"
+func()
+
+print("a:",a)
+print("b:",b)
+```
+##
+* <font color="#0080FF">**global 與 nonlocal 的位置**</font>
+
+```python=+
+def func():
+    a = 1
+    nonlocal a #a已經被視為local區域變數，不能再宣告為nonlocal或global
+```
+
+> ```SyntaxError: name 'a' is assigned to before nonlocal declaration```
+
+##
+* <font color="#0080FF">**local區域變數未賦值先用**</font>
+
+> <font color="#EA0000">**只要在函式內部(不論位置)對該變數有賦值動作，該變數一律視為local區域變數**</font>
+
+```python=+
+a = "global"
+def func(x):
+     if x:
+        a = "local" #變數a在函式(func)有賦值動作，視為區域變數，因此不會往外找
+     print(a) 
+
+func(True)
+func(False)
+```
+
+> ```local```</br>
+> ```local variable 'a' referenced before assignment```
 
 ## 時間戳記
 
