@@ -8,9 +8,9 @@
 
 | 類別 | 說明 |
 | :------: | :-----------: |
-| 內建(builtin)| Python解釋器進行時，會建立一個名為 __ builtin __ 的模組，此模組包含所有內建函式，例如 len()、min()、max()、str() 等 |
-| 全域(global) | 建立其他模組時，模組所帶的命名空間被稱為全域命名空間，放在這個空間中的變數即為「全域變數」 |
-| 區域(local)  | 呼叫函式時，Python 會為這個函式建立一個區域命名空間，</br>放在這個空間中的變數即為「區域變數」，</br>函式結束後，這個命名空間會隨之刪除 |
+| **內建(builtin)**| Python解釋器進行時，會建立一個名為 __ builtin __ 的模組，此模組包含所有內建函式，例如 len()、min()、max()、str() 等 |
+| **全域(global)** | 建立其他模組時，模組所帶的命名空間被稱為全域命名空間，放在這個空間中的變數即為「全域變數」 |
+| **區域(local)**  | 呼叫函式時，Python 會為這個函式建立一個區域命名空間，</br>放在這個空間中的變數即為「區域變數」，</br>函式結束後，這個命名空間會隨之刪除 |
 
 ## 2.命名空間相關操作
 
@@ -94,7 +94,9 @@ def f(x):
     print('離開 local: ',locals().keys())
 ```
 ##
-* <font color="#0080FF">**(!)模組內名稱的可視範圍**</font>
+* <font color="#0080FF">**<!!>模組內名稱的可視範圍**</font>
+
+> <font color="#EA0000">**模組內可視的globals全域命名空間、locals區域命名空間，僅包含該模組內的 (不含主程式)**</font>
 
 ```python=+
 import scopetest
@@ -109,7 +111,7 @@ scopetest.f(z)
 > ```進入 local:  {'x': 2}```</br>
 > ```離開 local:  dict_keys(['x', 'y', 'w'])```
 
-## 4.(!)從模組 import 變數容易發生的問題
+## 4.<!!>從模組 import 變數容易發生的問題
 
 
 <font color="#0080FF">**counter.py**</font>
@@ -134,25 +136,25 @@ print(counter.num)
 > ```0```</br>
 > ```1```
 ##
-* <font color="#0080FF">**(!)使用 from ... import ... 匯入**</font>
+* <font color="#0080FF">**<!!>用 from ... import ... 匯入**</font>
 
 ```python=+
-from counter import num,add #直接掛在主程式命名空間中
+from counter import num,add #直接掛在主程式命名空間中，因此這裡的num,add屬於主程式
 print(num)
-add()
+add() #增加的是模組內全域變數的num
 print(num)
 
 import counter
-print(counter.num)
+print(counter.num) #模組內的num實際上有增加
 ```
 
 > ```0```</br>
 > ```0```</br>
 > ```1```
 
-## (!)5.建立與內建函式同名的變數
+## <!!>5.建立與內建函式同名的變數
 
-* <font color="#0080FF">**(!)全域變數名稱覆蓋同名稱內建函式**</font>
+* <font color="#0080FF">**<!!>全域變數名稱覆蓋同名稱內建函式**</font>
 
 ```python=+
 list('SUSHI RAMEN')
@@ -183,14 +185,6 @@ mymath.pi
 
 ## 6.其他常用及特殊的操作
 
-* <font color="#0080FF">**用 dir() 列出模組內所有名稱**</font>
-
-```python=+
-dir(__builtins__)
-```
-
-> ```['ArithmeticError','AssertionError','AttributeError','BaseException','BlockingIOError','BrokenPipeError','BufferError','BytesWarning',...,'str','sum','super','tuple','type','vars','zip']```
-##
 * <font color="#0080FF">**查看函式內的說明文件**</font>
 
 ```python=+
@@ -207,23 +201,62 @@ print(max.__doc__)
 > ```max(arg1, arg2, *args, *[, key=func]) -> value```
 > ```...```
 ##
-* <font color="#0080FF">**(!)變數名稱偵錯**</font>
+* <font color="#0080FF">**用 dir() 列出模組內所有名稱**</font>
+
+```python=+
+dir(__builtins__)
+```
+
+> ```['ArithmeticError','AssertionError','AttributeError','BaseException','BlockingIOError','BrokenPipeError','BufferError','BytesWarning',...,'str','sum','super','tuple','type','vars','zip']```
+##
+* <font color="#0080FF">**用 dir() 變數名稱偵錯**</font>
 
 ```python=+
 x1 = 6
 xl = x1 - 2 #左邊名稱將數字 1 誤打成英文字母 l 
 x1
 
-dir() #(注意!)在沒有參數的情況下傳回區域命名空間中的名稱
+dir() #(important!)在沒有參數的情況下傳回區域命名空間中的名稱，1並加以排序
 
 #最後面可以看到變數竟然有兩個!!
 ```
 
 > ```6```</br>
 > ```['In','Out','_','_1','_14',...,'mymath','quit','x1','xl']```
+##
 
-[回到上面](#2.命名空間相關操作)
+## 7.在主程式與不同模組間共享變數資料
+
+<font color="#0080FF">**config.py**</font>
+
+```python=+
+n = 0 #config模組內，存放需要共享的變數n
+```
+## 
+<font color="#0080FF">**Pmodule.py**</font>
+
+```python=+
+import config #將config模組import進來
+def add():
+    config.n += 1
+```
+##
+* <font color="#0080FF">**<!!>全域變數的常見用途是讓不同模組間可以共用資料**</font>
+```python=+
+import config
+import Pmodule
+
+print(config.n)
+Pmodule.add()
+print(config.n) #共享變數n的值已經被Pmodule改變了
+```
+
+> ```0```</br>
+> ```1```
+
 
 ## 時間戳記
 
 > [name=ZEOxO][time=Tue, Sep 1, 2020 15:13 PM][color=#907bf7]
+
+[回到上面](#1.命名空間)
