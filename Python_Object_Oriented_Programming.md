@@ -38,7 +38,7 @@ class Circle:
 c1 = Circle() #(important!)c1物件會自動被傳入到上面的self
 print(2 * 3.14 * c1.radius)
 
-c1.radius = 5
+c1.radius = 5 #修改radius變數值
 print(2 * 3.14 * c1.radius)
 ```
 
@@ -61,12 +61,28 @@ print(c1.area())
 c1.radius = 3
 print(c1.area())
 
-print(Circle.area(c1)) #(important!)另外一種呼叫 c 物件 area 的方法
+print(Circle.area(c1)) #(important!)另外一種呼叫 c1 物件 area 的方法
 ```
 
 > ```3.14159```</br>
 > ```28.27431```</br>
 > ```28.27431```
+##
+* <font color="#0080FF">**<!!>物件變數、區域變數**</font>
+
+```python=+
+class Circle:
+    def __init__(self):
+        self.radius = 1 
+        radius = 2 #__init__裡的區域變數
+        #print(radius) 在此處執行print -> radius = 2
+
+c1 = Circle()
+print(c1.radius) #print出物件變數
+```
+
+> ```1```
+
 ##
 * <font color="#0080FF">**建立物件時傳遞引數、預設值**</font>
 
@@ -93,7 +109,7 @@ print(c2.area())
 
 ```python=+
 class Circle:
-    pi = 3.14159 #建立類別變數 pi
+    pi = 3.14159 #建立類別變數 pi (不是在__init__中建立)
     def __init__(self,r = 1):
         self.radius = r
     def area(self):
@@ -117,11 +133,11 @@ c1.__class__
 c1.__class__.pi
 ```
 
-> ```__main__.Circle```</br>
-> ```__main__.Circle```</br>
+> ```__main__.Circle #兩者指向同一個類別```</br>
+> ```__main__.Circle #兩者指向同一個類別```</br>
 > ```3.14```
 ##
-* <font color="#0080FF">**<!>避免日後更改類別名稱的方法**</font>
+* <font color="#0080FF">**<!!>避免日後更改類別名稱的方法**</font>
 
 ```python=+
 class Circ:
@@ -142,7 +158,9 @@ print(c2.area())
 > ```28.27431```
 
 ##
-* <font color="#0080FF">**類別變數與物件變數**</font>
+* <font color="#0080FF">**<!!>類別變數、物件變數**</font>
+
+> <font color="#EA0000">**請記得 Python 遇到賦值敘述時，若變數不存在，就會自動建立該變數!!**</font>
 
 ```python=+
 c1 = Circle(1)
@@ -158,7 +176,7 @@ c2.pi
 > ```3.14```</br>
 > ```3.14159```
 
-## 4.靜態方法 (Static method) 與 類別方法 (Class method)
+## 4.<!!>靜態方法 (Static method) 與 類別方法 (Class method)
 
 <font color="#0080FF">**circle.py**</font>
 
@@ -225,11 +243,12 @@ class Circle:
         return self.__class__.pi * self.radius * self.radius
 
     @classmethod #類別方法class method
-    def total_area(cls):
+    def total_area(cls): 
+    #(important)類別方法會以本身作為第一個參數傳遞，而代表類別本身的參數命名慣例是"cls"
         '''用來計算 all_circles 這個 list 所有物件總面積的類別方法'''
         total = 0
         for c in cls.all_circles:
-            #靜態方法是使用固定的類別名稱，類別方法是將類別本身傳遞為參數，不用擔心日後改名!!
+            #(important!)靜態方法是使用固定的類別名稱，類別方法是將類別本身傳遞為參數，不用擔心日後改名!!
             total = total + c.area()
         return total
 ```
