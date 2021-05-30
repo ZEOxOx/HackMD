@@ -12,14 +12,12 @@ class Circle:
     pass
 
 c1 = Circle()
-c1.radius = 3 
-#計算圓的周長
-print(2 * 3.14 * c1.radius)
+c1.radius = 3 #不存在的變數賦值 = 建立變數
+print(2 * 3.14 * c1.radius) #計算圓的周長
 
 c2 = Circle()
 c2.r = 5
-#計算圓的周長
-print(2 * 3.14 * c2.r)
+print(2 * 3.14 * c2.r) #計算圓的周長
 
 print(Circle().__doc__)
 ```
@@ -32,7 +30,7 @@ print(Circle().__doc__)
 
 ```python=+
 class Circle:
-    def __init__(self): # <-- c1被傳進這裡的self
+    def __init__(self): # <- c1被傳進這裡的self
         self.radius = 1
         
 c1 = Circle() #(important!)c1物件會自動被傳入到上面的self
@@ -105,6 +103,10 @@ print(c2.area())
 
 ## 3.類別變數 (class variables)
 
+> <font color="#EA0000">**「類別變數」可以作為「物件變數」的預設值。**</font>
+
+> <font color="#EA0000">**優點：可節省每次建立物件時初始化該物件變數的時間和記憶體的成本</br>缺點：容易搞不清楚目前到底是參照了物件變數或類別變數**</font>
+
 * <font color="#0080FF">**建立物件時建立類別變數、傳遞引數、預設值**</font>
 
 ```python=+
@@ -137,9 +139,10 @@ c1.__class__.pi
 > ```__main__.Circle #兩者指向同一個類別```</br>
 > ```3.14```
 ##
-* <font color="#0080FF">**<!!>避免日後更改類別名稱的方法**</font>
+* <font color="#0080FF">**<!!>存取類別變數 (利用物件的特殊屬性)**</font>
 
 ```python=+
+#避免日後更改類別名稱的方法
 class Circ:
     pi = 3.14159 
     def __init__(self,r = 1):
@@ -253,7 +256,7 @@ class Circle:
         return total
 ```
 ##
-* <font color="#0080FF">**呼叫類別方法**</font>
+* <font color="#0080FF">**呼叫類別方法 (不用擔心日後類別改名)**</font>
 
 ```python=+
 import circle_cm
@@ -396,7 +399,7 @@ c1.print_p() #Class C
 > ```Class C```</br>
 > ```Class C```</br>
 ##
-* <font color="#0080FF">**繼承自父類別的類別變數**</font>
+* <font color="#0080FF">**<!!>繼承自父類別的類別變數**</font>
 
 ```python=+
 c1.z,C.z,P.z
@@ -444,8 +447,12 @@ class Circle(Shape):
             total = total + cls.circle_area(c.radius)
         return total
 ```
-##
+## 
 * <font color="#0080FF">**綜合測試**</font>
+
+> <font color="#EA0000">**共用不傳值的方法 -> 推薦使用「類別方法」**</font>
+
+> <font color="#EA0000">**共用需運算的方法 -> 推薦使用「靜態方法」**</font>
 
 ```python=+
 c1 = Circle()
@@ -461,7 +468,7 @@ Circle.all_circles #就是c1,c2
 [c1,c2]
 
 Circle.total_area() #類別方法
-c2.total_area() #物件方法
+c2.total_area() #物件呼叫類別方法
 
 Circle.circle_area(c1.radius) #把靜態方法當公用函式直接呼叫
 c1.circle_area(c1.radius)
@@ -515,9 +522,31 @@ dir(m)
 
 > ```['_Mine__y','__class__','__delattr__','__dict__','__dir__','__doc__','__eq__',...,'print_y','x']```
 
-## 9.<!>Python 中的 getter 與 setter
+## 9.Python 中的 getter 與 setter
 
-* <font color="#0080FF">**以 @property 修飾器來實作更靈活的物件變數**</font>
+* <font color="#0080FF">**常見的 getter & setter**</font>
+
+```python=+
+class Hero:
+    def __init__(self):
+        self._ID = "SUSHI"
+    
+    def get_id(self):
+        return self._ID
+    
+    def set_id(self,new_id):
+        self._ID = new_id
+        
+p1 = Hero()
+p1.get_id()
+p1.set_id("ZEOxO")
+p1.get_id()
+```
+
+> ```SUSHI```</br>
+> ```ZEOxO```
+##
+* <font color="#0080FF">**<!!>以 @property 修飾器來實作更靈活的物件變數**</font>
 
 ```python=+
 """
@@ -526,13 +555,15 @@ dir(m)
 class Temperature:
     def __init__(self):
         self._temp_fahr = 0
-        
-    @property #取代getter
+    
+    #取代getter
+    @property 
     def temp(self):
         #自動將 *華氏溫度 轉換為 *攝氏溫度
         return (self._temp_fahr - 32) * 5 / 9
         
-    @temp.setter
+    #定義setter名稱要和getter保持不變 = temp
+    @temp.setter 
     def temp(self,new_temp):
         #自動將 *攝氏溫度 轉換為 *華氏溫度
         self._temp_fahr = new_temp * 9 / 5 + 32
