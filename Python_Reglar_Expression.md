@@ -11,9 +11,13 @@ Hello World!
 Hello Python!
 ```
 ##
-* <font color="#0080FF">**(續)給予特定字串樣式做配對**</font>
+* <font color="#0080FF">**給予特定字串樣式做配對**</font>
 
 ```python=+
+"""
+計算文檔中有幾行包含了Hello這個單字
+若一行中有好幾個Hello，只會計算一次
+"""
 import re,os
 regexp = re.compile('Hello') #指定字串樣式
 count = 0
@@ -52,30 +56,46 @@ regexp = re.compile('[Hh]ello') #推薦，不用寫一堆「|」
 ```python=+
 # 在re.compile中轉義字元將會先被替換
 regexp = re.compile('第一行\n第二行')
+
+#實際搜尋：
 '''
 第一行
 第二行
 '''
-regexp = re.compile('\\\\ten')
-'''\\ten'''
 ```
 ##
-* <font color="#0080FF">**使用原始字串避免轉義字元的問題**</font>
+* <font color="#0080FF">**含有轉義字元的常規表達式(續)**</font>
 
 ```python=+
+# 如果想搜尋「\ten」
+regexp = re.compile('\\\\ten') #必須寫成這樣
+  
+#step.1 Python字串物件會將兩個反斜線轉成一個 -> \\ten
+#step.2 re.compile也會替換轉義字元 -> \ten
+#實際搜尋：
+'''\ten'''
+```
+
+##
+* <font color="#0080FF">**用原始字串定義常規表達式**</font>
+
+```python=+
+#使用原始字串避免轉義字元的問題
 r'Hello'
 r'''12345'''
 
 r'\the' == '\\the'
-print('\the')
 print(r'C:\\some\\directory\\cat.jpg') #搜尋指定目錄或檔案
 ```
 
 > ```'Hello'```</br>
 > ```'12345'```</br>
 > ```True```</br>
-> ```	he```</br>
 > ```C:\\some\\directory\\cat.jpg```
+
+## 3.從字串中提取符合樣式的文字
+
+
 
 ## 時間戳記
 
